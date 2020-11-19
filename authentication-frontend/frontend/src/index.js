@@ -5,12 +5,22 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import configureStore from './store';
+import { restoreCSRF, fetch } from './store/csrf';
 
 const store = configureStore();
 
+
 if (process.env.NODE_ENV !== 'production') {
+  restoreCSRF();
+
+  window.csrfFetch = fetch;
   window.store = store;
 }
+
+window.csrfFetch('/api/test', {
+  method: 'POST',
+  body: JSON.stringify({ credential: 'Demo-lition', password: 'password' })
+}).then(res => console.log(res.data));
 
 function Root() {
   return (
