@@ -1,0 +1,52 @@
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.form-login {
+  display: flex;
+  width: 400px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(238, 238, 223);
+}
+
+.input-wrapper {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form__label--name {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.login-form__name {
+  width: 200px;
+  display: flex;
+}
+
+.login-form__label--password {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.login-form__password {
+  width: 200px;
+  display: flex;
+  
+}
+
+.login-form__button {
+  display: flex;
+  width: 88px;
+  height: 38px;
+  margin-top: 30px;
+  margin-left: 30px;
+  color: white;
+  background-color:black;
+  align-items: center;
+  text-align: center;
+}
