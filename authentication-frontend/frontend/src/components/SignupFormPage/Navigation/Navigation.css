@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Alfa Slab One';
+  src: url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One')
+}
+
+.navbar-container {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(0, 0, 0);
+  margin: auto;
+  display: inline-flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-links__home {
+  text-decoration: none;
+  font-family: "Alfa Slab One";
+  font-size: x-large;
+  color: whitesmoke;
+}
+
+.navbar-links__login {
+  text-decoration: none;
+  font-family: "Alfa Slab One";
+  font-weight: 800;
+  color: black;
+}
+
+.home {
+  display: flex;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-right: 50px;
+  align-items: center;
+}
+
+.login-container-div {
+  color: black;
+  border-radius: 15px;
+  display: flex;
+  height: 50px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(212, 208, 184);
+}
+
+.navbar-login {
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+.navbar-span {
+  margin: 7px;
+}
+
+.userIcon {
+  color: gold;
+  border: 1px solid black;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  font-size: 60px;
+  border-radius: 15px;
+}
+
+.profile-dropdown {
+  text-decoration: none;
+  border: 1px solid black;
+  margin: 25px;
+  color: white;
+  list-style-type: none;
+}
