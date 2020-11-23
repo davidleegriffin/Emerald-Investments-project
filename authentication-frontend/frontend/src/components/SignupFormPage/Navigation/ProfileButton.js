@@ -32,7 +32,8 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu} className="userIcon">
-        <i class="fas fa-coins"></i>
+        {/* <i class="fas fa-coins"></i> */}
+        <img src="./images/pot-o-gold.png" width="80px" className="is-selected"/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
