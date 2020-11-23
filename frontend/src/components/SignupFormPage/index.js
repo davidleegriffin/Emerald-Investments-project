@@ -19,17 +19,24 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
+      resetForm();
       return dispatch(sessionActions.signup({ email, username, password }))
-        .catch(res => {
-          if (res.data && res.data.errors) setErrors(res.data.errors);
-        });
+      .catch(res => {
+        if (res.data && res.data.errors) setErrors(res.data.errors);
+      });
     }
     
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const resetForm = () => {
+    document.getElementById("signupForm").reset();
+  };
+
+  
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="signupForm">
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>

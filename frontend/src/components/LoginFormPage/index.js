@@ -18,15 +18,22 @@ function LoginFormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    resetForm();
     return dispatch(sessionActions.login({ credential, password }))
       .catch((res) => {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       });
-  }
+  };
+
+  const resetForm = () => {
+    document.getElementById("loginForm").reset();
+  };
+
+  // resetForm();
 
   return (
     <div className="form-wrapper">
-    <form className="form-login" onSubmit={handleSubmit}>
+    <form className="form-login" onSubmit={handleSubmit} id="loginForm">
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
@@ -39,6 +46,7 @@ function LoginFormPage() {
           onChange={(e) => setCredential(e.target.value)}
           required
           className="login-form__name"
+          placeholder="name"
         />
       </label>
       <label className="login-form__label--password">
@@ -48,7 +56,8 @@ function LoginFormPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="login-form__password"  
+          className="login-form__password"
+          placeholder="password"    
         />
       </label>
       </div>  
