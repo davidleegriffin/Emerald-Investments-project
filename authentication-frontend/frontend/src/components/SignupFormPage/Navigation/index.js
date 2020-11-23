@@ -27,6 +27,9 @@ function Navigation({ isLoaded }){
   return (
     <div className="navbar-container">
       <div className="home">
+        <div className="emerald-wrapper">
+          <img src="./images/emerald.png" width="30px" />
+        </div>
         <NavLink className="navbar-links__home" exact to="/">Home</NavLink>
       </div> 
       <div className="login">

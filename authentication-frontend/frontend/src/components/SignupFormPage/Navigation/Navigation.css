@@ -7,7 +7,7 @@
   width: 100%;
   height: 100px;
   background-color: rgb(0, 0, 0);
-  margin: auto;
+  /* margin: auto; */
   display: inline-flex;
   justify-content: space-between;
   position: sticky;
@@ -32,6 +32,11 @@
   display: flex;
   margin-top: 40px;
   margin-left: 20px;
+}
+
+.emerald-wrapper {
+  /* position: static; */
+  margin-top: 0px;
 }
 
 .login {
