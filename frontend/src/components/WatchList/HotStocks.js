@@ -1,7 +1,7 @@
 
 import './WatchList.css';
 import React, { useState, useEffect } from 'react';
-
+import HotStockDetail from './HotStockDetail';
 
 const HotStocks = () => {
   const [hotties, setHotties] = useState([]);
@@ -11,7 +11,7 @@ const HotStocks = () => {
     const stockFetch = async () => {
       const response = await fetch(url);
       const hotties = await response.json();
-      console.log('hotties', hotties[0])
+      // console.log('hotties', hotties[0])
       await setHotties(hotties);
     }
     stockFetch();
@@ -23,7 +23,7 @@ const HotStocks = () => {
 
   return (
     <div className="test">
-      {hotties.map(mover => <h1 key="mover.highTime">{ mover.symbol }</h1>)}
+      {hotties.map(mover => <HotStockDetail key={mover.highTime} props={mover} />)}
     </div>
   );
 }
