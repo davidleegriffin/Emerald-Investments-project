@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
-import NewsPage from './NewsPage';
+import NewsPage from '../NewsPage/NewsPage';
 import { Line } from "react-chartjs-2";
 
 
 function HomePage() {
   const [data, setData] = useState([]);
-  const stock = "AAPL";
+  const stock = "SPY";
 
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stock}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=100`;
@@ -16,7 +16,12 @@ function HomePage() {
       setData(quotes);
     }
     stockFetch();
+    function refresh() {
+      setInterval(stockFetch, 300000);
+    }
+    refresh();
   }, []);
+  
 
   let dataPrice = [];
   let dataLabel = [];
@@ -37,7 +42,7 @@ function HomePage() {
         label: `${stock}`,
         data: [...dataPrice],
         fill: true,
-        backgroundColor: "rgb(0,200,5,1)",
+        backgroundColor: "rgba(0,50,5,0.5)",
         borderColor: "rgb(0,200,5,1)"
       }
     ]

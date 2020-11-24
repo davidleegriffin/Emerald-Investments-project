@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './HomePage.css';
+import './NewsDetailPage.css';
 import NewsPageDetail from './NewsPageDetail';
 
 function NewsPage() {
   const [news, setNews] = useState([]);
-  const stock = "AAPL";
+  const stock = "SPY";
 
   
   useEffect(() => {
@@ -12,15 +12,15 @@ function NewsPage() {
     const stockNewsFetch = async () => {
       const response = await fetch(url);
       const news = await response.json();
-      setNews(news);
+      await setNews(news);
     }
     stockNewsFetch();
   }, []);
   
-  console.log(news);
+  // console.log(news);
   return (
     <div className="news-banner">
-      {news.map(story => {<img className="news-image" src={`${story.image}`} />})}
+       {news.map(story => <NewsPageDetail key={story.headline} props={story} />)}
     </div>
   );
 
