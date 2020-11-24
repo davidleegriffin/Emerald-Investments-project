@@ -4,17 +4,33 @@
 }
 
 .main-page-container {
-  margin-left: 8%;
+  margin-left: 11%;
+  display: flex;
+  /* position: relative; */
 }
 
 .graphName {
-  margin-left: 100px;
+  margin-left: 130px;
   color: white;
   font-family: Nunito, sans-serif;
 }
 
 .stockChart {
+  /* position: relative; */
   background-color: rgba(255, 255, 255, 0.15);
   width: 65%;
   height: 10%;
+  margin-top: -300px;
+}
+
+.watchlist-container {
+  display: flex;
+  position: sticky;
+  top: 35%;
+  /* height: 100%; */
+  margin-left: 70%;
+  margin-right: 5%;
+  margin-top: 0%;
+  color: black;
+  background-color: white;
 }

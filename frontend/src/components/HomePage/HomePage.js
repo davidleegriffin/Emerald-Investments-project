@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import NewsPage from '../NewsPage/NewsPage';
 import { Line } from "react-chartjs-2";
+import HotStocks from '../WatchList/HotStocks';
 
 
 function HomePage() {
@@ -50,11 +51,14 @@ function HomePage() {
   
   return (
     <div className="main-page-container">
+      <div>
+      <div className="watchlist-container">
+        <HotStocks />
+      </div>
       <div className="stockChart">
         <h1 className="graphName">{`${stock}`}</h1>
         <Line data={chartData} />
       </div>
-      <div>
         <NewsPage />
       </div>
     </div>
