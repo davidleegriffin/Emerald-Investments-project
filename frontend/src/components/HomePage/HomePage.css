@@ -6,7 +6,7 @@
 .main-page-container {
   margin-left: 11%;
   display: flex;
-  /* position: relative; */
+  position: relative;
 }
 
 .graphName {
@@ -16,21 +16,20 @@
 }
 
 .stockChart {
-  /* position: relative; */
+  position: relative;
   background-color: rgba(255, 255, 255, 0.15);
   width: 65%;
   height: 10%;
-  margin-top: -300px;
+  margin-top: -1200px;
+  z-index: 2;
 }
 
 .watchlist-container {
   display: flex;
-  position: sticky;
-  top: 35%;
   border-radius: 25px;
   margin-left: 70%;
   margin-right: 5%;
-  margin-top: 0%;
+  margin-top: 15%;
   color: black;
   background-color: white;
 }

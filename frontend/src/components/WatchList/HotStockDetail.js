@@ -6,11 +6,20 @@ function HotStockDetail(props) {
   console.log(movers);
   return (
     <div className="mover-container">
-      <div className="stock-symbol"><h1>{movers.symbol}<span className="price-change">{ movers.change }</span></h1>{ movers.companyName }</div>
+      <div className="stock-symbol">
+        <h1>
+          <p>{movers.symbol}
+          <span className="price-change">
+          <img className="green-arrow" src="./images/up-green-arrow.png" width="30px" />
+            {movers.change}
+          </span></p>
+        </h1>
+        {movers.companyName}
+      </div>
       <div className="overlay">
-        <div className="companyName">{movers.companyName}</div>
-        <div className="latestPrice">{`${movers.symbol}   -   `}Latest Price: ${movers.latestPrice}</div>
-        <div className="latestTime">{ movers.latestTime }</div>
+      <div className="companyName">{movers.companyName}</div>
+      <div className="latestPrice">{`${movers.symbol}   -   `}Latest Price: ${movers.latestPrice}</div>
+      <div className="latestTime">{ movers.latestTime }</div>
       </div>
     </div>
   );

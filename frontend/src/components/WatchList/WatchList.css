@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.green-arrow {
+  margin-left: 10px;
+}
+
 .overlay {
   position: absolute;
   justify-content: center;
@@ -48,9 +52,9 @@
 
 .latestPrice {
   font-family: Nunito, sans-serif;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 .price-change {
-  margin-left: 30px;
+  margin-left: 0px;
 }
