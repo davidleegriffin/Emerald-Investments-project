@@ -51,15 +51,15 @@ function HomePage() {
   
   return (
     <div className="main-page-container">
-      <div>
-      <div className="watchlist-container">
-        <HotStocks />
-      </div>
       <div className="stockChart">
         <h1 className="graphName">{`${stock}`}</h1>
         <Line data={chartData} />
+        <div className="news-page-container">
+          <NewsPage />
+        </div>
       </div>
-        <NewsPage />
+      <div className="watchlist-container">
+        <HotStocks />
       </div>
     </div>
   )

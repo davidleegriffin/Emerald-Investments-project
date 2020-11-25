@@ -22,16 +22,15 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  top: 0;
+  top: -130px;
   bottom: 0;
-  left: 0;
+  left: -600px;
   right: 0;
   height: 100%;
   width: 100%;
   opacity: 0;
   transition: .5s ease;
   z-index: 3;
-  background-color:trnasparent;
 }
 
 .overlay > div {
@@ -55,8 +54,6 @@
   opacity: 1;
   width: 500px;
   height: 00px;
-  margin-left: -525px;
-  /* margin-top: -230px; */
   text-align: center;
 }
 
