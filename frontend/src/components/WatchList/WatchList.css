@@ -8,13 +8,14 @@
 }
 
 .mover-container {
-  width: 150px;
+  width: 300px;
   position: relative;
   justify-content: center;
 }
 
 .green-arrow {
   margin-left: 10px;
+  margin-right: 10px;
 }
 
 .overlay {
@@ -29,7 +30,23 @@
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 3;
+  background-color:trnasparent;
+}
+
+.overlay > div {
+  background-color: white;
+  border-radius: 25px;
+  border: 2px solid black;
+}
+
+.companyName {
+  border-radius: 25px;
+  font-family: Nunito, sans-serif;
+  font-size: x-large;
+  font-weight: 900;
+  margin: 20px;
+  border: 2px solid black;
 }
 
 .mover-container:hover .overlay {
@@ -37,17 +54,14 @@
   border-radius: 25px;
   opacity: 1;
   width: 500px;
-  height: 500px;
-  margin-left: -600px;
-  margin-top: -230px;
+  height: 00px;
+  margin-left: -525px;
+  /* margin-top: -230px; */
   text-align: center;
 }
 
-.companyName {
-  font-family: Nunito, sans-serif;
-  font-size: x-large;
-  font-weight: 900;
-  margin: 20px;
+.sub-overlay-container {
+  border-radius: 25px;
 }
 
 .latestPrice {
@@ -57,4 +71,24 @@
 
 .price-change {
   margin-left: 0px;
+}
+
+.details-wrapper {
+  background-color: black;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 7px;
+}
+
+.details-wrapper div {
+  background-color: white;
+  height: 100px;
+  font-family: Nunito, sans-serif;
+  font-size: large; 
+  margin-top: 5px;
+}
+
+.details-label {
+  font-weight: 800 !important;
+  font-size: large;
 }
