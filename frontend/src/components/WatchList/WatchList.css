@@ -1,3 +1,56 @@
-.test {
-  color: black;
+@font-face {
+  font-family: 'Nunito';
+  src: url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900');
+}
+
+.stock-symbol {
+  text-align: center;
+}
+
+.mover-container {
+  width: 150px;
+  position: relative;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.mover-container:hover .overlay {
+  position: absolute;
+  border-radius: 25px;
+  opacity: 1;
+  width: 500px;
+  height: 500px;
+  margin-left: -600px;
+  margin-top: -230px;
+  text-align: center;
+}
+
+.companyName {
+  font-family: Nunito, sans-serif;
+  font-size: x-large;
+  font-weight: 900;
+  margin: 20px;
+}
+
+.latestPrice {
+  font-family: Nunito, sans-serif;
+  font-size: xx-large;
+}
+
+.price-change {
+  margin-left: 30px;
 }

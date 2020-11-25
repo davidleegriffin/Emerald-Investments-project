@@ -3,9 +3,16 @@ import './WatchList.css';
 
 function HotStockDetail(props) {
   const movers = props.props;
-  // console.log(movers.symbol);
+  console.log(movers);
   return (
-    <h1>{movers.symbol}</h1>
+    <div className="mover-container">
+      <div className="stock-symbol"><h1>{movers.symbol}<span className="price-change">{ movers.change }</span></h1>{ movers.companyName }</div>
+      <div className="overlay">
+        <div className="companyName">{movers.companyName}</div>
+        <div className="latestPrice">{`${movers.symbol}   -   `}Latest Price: ${movers.latestPrice}</div>
+        <div className="latestTime">{ movers.latestTime }</div>
+      </div>
+    </div>
   );
 }
 
