@@ -22,9 +22,9 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  top: -130px;
+  top: 0px;
   bottom: 0;
-  left: -600px;
+  left: 0px;
   right: 0;
   height: 100%;
   width: 100%;
@@ -34,7 +34,7 @@
 }
 
 .overlay > div {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 25px;
   border: 2px solid black;
 }
@@ -52,9 +52,10 @@
   position: absolute;
   border-radius: 25px;
   opacity: 1;
-  width: 500px;
-  height: 00px;
+  width: 300px;
+  margin-top: -78px;
   text-align: center;
+ 
 }
 
 .sub-overlay-container {
@@ -78,7 +79,7 @@
 }
 
 .details-wrapper div {
-  background-color: white;
+  background-color: rgba(175, 255, 235, 1);
   height: 100px;
   font-family: Nunito, sans-serif;
   font-size: large; 
