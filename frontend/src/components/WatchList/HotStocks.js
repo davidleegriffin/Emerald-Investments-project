@@ -11,7 +11,6 @@ const HotStocks = () => {
     const stockFetch = async () => {
       const response = await fetch(url);
       const hotties = await response.json();
-      // console.log('hotties', hotties[0])
       await setHotties(hotties);
     }
     stockFetch();

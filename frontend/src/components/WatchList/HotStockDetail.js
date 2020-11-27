@@ -3,13 +3,13 @@ import './WatchList.css';
 
 function HotStockDetail(props) {
   const movers = props.props;
-  console.log(movers);
+  
   return (
     <div className="mover-container">
       <div className="stock-symbol">
         <h2>
           <p>{movers.symbol}
-          <img className="green-arrow" src="./images/up-green-arrow.png" width="30px" />
+          <img className="green-arrow" src="./images/up-green-arrow.png" width="30px" alt="up-arrow" />
         
           <span className="price-change">
           {movers.change}

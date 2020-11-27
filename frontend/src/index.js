@@ -17,13 +17,6 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
 }
 
-// window.csrfFetch('/api/test', {
-//   method: 'POST',
-//   body: JSON.stringify({ credential: 'Demo-lition', password: 'password' })
-// }).then(res => console.log(res.data));
-
-
-
 function Root() {
   return (
     <Provider store={store}>

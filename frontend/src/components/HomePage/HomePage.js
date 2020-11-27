@@ -27,7 +27,6 @@ function HomePage() {
   let dataPrice = [];
   let dataLabel = [];
   let dataVolume = [];
-  // console.log(data);
   data.forEach(quote => {
     if (quote.close) {
       dataPrice.push(quote.close);
@@ -35,7 +34,6 @@ function HomePage() {
       dataVolume.push(quote.volume/quote.close);
     }
   });
-  // console.log(dataPrice);
   const chartData = {
     labels: [...dataLabel],
     datasets: [

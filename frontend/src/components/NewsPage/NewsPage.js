@@ -17,7 +17,6 @@ function NewsPage() {
     stockNewsFetch();
   }, []);
   
-  // console.log(news);
   return (
     <div className="news-banner">
        {news.map(story => <NewsPageDetail key={story.headline} props={story} />)}
