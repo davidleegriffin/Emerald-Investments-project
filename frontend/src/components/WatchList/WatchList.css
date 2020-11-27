@@ -9,6 +9,7 @@
 
 .mover-container {
   width: 300px;
+  height: auto;
   position: relative;
   justify-content: center;
 }

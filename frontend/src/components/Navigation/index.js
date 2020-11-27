@@ -32,7 +32,7 @@ function Navigation({ isLoaded }){
         </div>
         <NavLink className="navbar-links__home" exact to="/">Home</NavLink>
       </div> 
-      <input type="search" alt="Enter Stock Symbol" placeholder="Enter Stock Symbol" size="50"></input>
+      {/* <input type="search" alt="Enter Stock Symbol" placeholder="Enter Stock Symbol" size="50"></input> */}
       <div className="login">
         {isLoaded && sessionLinks}
       </div>  
