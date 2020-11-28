@@ -6,7 +6,7 @@
 .main-page-container {
   margin-top: 7%;
   margin-left: 2%;
-  width: 90%;
+  width: 80%;
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 50px;

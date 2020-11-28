@@ -5,20 +5,20 @@ import { Line } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
 
 
-
-function HomePage(props) {
+function HomePage() {
   const [data, setData] = useState([]);
   const [stockSymbol, setStockSymbol] = useState('');
-
-  const handleChange = (e) => {
-    setStockSymbol(e.target.value);
-  };
-
-  const handleSearch = () => {
-    console.log('handleSearch');
-    
-  }
   
+  
+  const handleChange = (e) => {
+    e.preventDefault();
+  };
+  
+  const handleSearch = (e) => {
+    let input = document.getElementById('search-field');
+    setStockSymbol(input.value);
+  }
+
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=100`;
     const stockFetch = async () => {
@@ -26,6 +26,7 @@ function HomePage(props) {
       const quotes = await response.json();
       setData(quotes);
     }
+    window.onload = handleSearch();
     stockFetch();
     function refresh() {
       setInterval(stockFetch, 300000);
@@ -60,16 +61,18 @@ function HomePage(props) {
   return (
     <div className="main-page-container">
       <div className="search-div">
-      <input
+        <input
+        id="search-field"
         type="text"
         placeholder="Enter Stock Symbol"
-        value="SPY"
+        defaultValue="SPY"  
+        // value={`${stockSymbol}`}  
         onChange={handleChange}
       />
       <button onClick={handleSearch}>Search</button>
     </div>
       <div className="stockChart">
-        <h1 className="graphName">{`${stockSymbol}`}</h1>
+        <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
         <Line data={chartData} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
