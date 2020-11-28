@@ -5,12 +5,22 @@ import { Line } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
 
 
-function HomePage() {
-  const [data, setData] = useState([]);
-  const stock = "SPY";
 
+function HomePage(props) {
+  const [data, setData] = useState([]);
+  const [stockSymbol, setStockSymbol] = useState('');
+
+  const handleChange = (e) => {
+    setStockSymbol(e.target.value);
+  };
+
+  const handleSearch = () => {
+    console.log('handleSearch');
+    
+  }
+  
   useEffect(() => {
-    const url = `https://cloud.iexapis.com/stable/stock/${stock}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=100`;
+    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=100`;
     const stockFetch = async () => {
       const response = await fetch(url);
       const quotes = await response.json();
@@ -21,7 +31,7 @@ function HomePage() {
       setInterval(stockFetch, 300000);
     }
     refresh();
-  }, []);
+  }, [stockSymbol]);
   
 
   let dataPrice = [];
@@ -38,7 +48,7 @@ function HomePage() {
     labels: [...dataLabel],
     datasets: [
       {
-        label: `${stock}`,
+        label: `${stockSymbol}`,
         data: [...dataPrice],
         fill: true,
         backgroundColor: "rgba(0,50,5,0.5)",
@@ -49,11 +59,20 @@ function HomePage() {
   
   return (
     <div className="main-page-container">
+      <div className="search-div">
+      <input
+        type="text"
+        placeholder="Enter Stock Symbol"
+        value="SPY"
+        onChange={handleChange}
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
       <div className="stockChart">
-        <h1 className="graphName">{`${stock}`}</h1>
+        <h1 className="graphName">{`${stockSymbol}`}</h1>
         <Line data={chartData} />
         <div className="news-page-container">
-          <NewsPage />
+          <NewsPage value={stockSymbol} />
         </div>
       </div>
       <div className="watchlist-container">

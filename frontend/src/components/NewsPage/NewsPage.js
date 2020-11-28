@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './NewsDetailPage.css';
 import NewsPageDetail from './NewsPageDetail';
 
-function NewsPage() {
+function NewsPage(props) {
   const [news, setNews] = useState([]);
-  const stock = "SPY";
-
+  const stock = props.value;
+  console.log();
   
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stock}/news/last/7?token=pk_797fccfaec704ed4909e8ac1156e1db9`;
@@ -15,7 +15,7 @@ function NewsPage() {
       await setNews(news);
     }
     stockNewsFetch();
-  }, []);
+  }, [stock]);
   
   return (
     <div className="news-banner">
