@@ -29,6 +29,18 @@ export const login = (user) => async (dispatch) => {
   return response;
 };
 
+export const portfolioAdd = () => async (dispatch) => {
+  const response = await fetch('/api/portfolio', {
+    method: "POST",
+    body: JSON.stringify({
+      "stockSymbol": "arr",
+      "shares": "20",
+      "userId": "1"
+    }),
+  });
+  return response;
+}
+
 export const signup = (user) => async (dispatch) => {
   const { username, email, password } = user;
   const response = await fetch("/api/users", {

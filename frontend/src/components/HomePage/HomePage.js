@@ -3,11 +3,13 @@ import './HomePage.css';
 import NewsPage from '../NewsPage/NewsPage';
 import { Line } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
-
+import * as sessionActions from "../../store/session";
+import { useDispatch } from "react-redux";
 
 function HomePage() {
   const [data, setData] = useState([]);
   const [stockSymbol, setStockSymbol] = useState('');
+  const dispatch = useDispatch();
   
   
   const handleChange = (e) => {
@@ -17,6 +19,13 @@ function HomePage() {
   const handleSearch = (e) => {
     let input = document.getElementById('search-field');
     setStockSymbol(input.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('add shares');
+    return dispatch(sessionActions.portfolioAdd({}))
+
   }
 
   useEffect(() => {
@@ -49,7 +58,7 @@ function HomePage() {
     labels: [...dataLabel],
     datasets: [
       {
-        label: `${stockSymbol}`,
+        label: `${stockSymbol}`.toUpperCase(),
         data: [...dataPrice],
         fill: true,
         backgroundColor: "rgba(0,50,5,0.5)",
@@ -68,9 +77,22 @@ function HomePage() {
         defaultValue="SPY"  
         // value={`${stockSymbol}`}  
         onChange={handleChange}
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+      <div>
+        <form onSubmit={handleSubmit} id="portfolio-form">
+          <label className="shares-input">
+            Shares
+            <input
+              type="text"
+              value='shares'
+              required
+            />
+          </label>
+          <button className="add-portfolio" type="submit">Add</button>
+        </form>
+      </div>
       <div className="stockChart">
         <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
         <Line data={chartData} />
