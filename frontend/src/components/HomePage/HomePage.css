@@ -12,6 +12,67 @@
   grid-gap: 50px;
 }
 
+.search-div {
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  font-family: Nunito, sans-serif;
+  border: 2px solid red;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.search-button {
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  border-radius: 25px;
+  background: rgba(255,150,150,0.5);
+}
+
+.add-portfolio {
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  border-radius: 25px;
+  background: rgba(255,150,150,0.5);
+
+}
+
+#search-field {
+  background: rgba(0,255,50,0.5);
+  border-radius: 25px;
+  font-family: Nunito, sans-serif;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+}
+
+#shares-field {
+  background: rgba(0,255,50,0.5);
+  border-radius: 25px;
+  color: black;
+  font-family: Nunito, sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+#portfolio-form {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  color: white;
+  font-family: Nunito, sans-serif;
+  font-weight: 600;
+  border: 2px solid red;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+
 .graphName {
   margin-left: 130px;
   color: white;

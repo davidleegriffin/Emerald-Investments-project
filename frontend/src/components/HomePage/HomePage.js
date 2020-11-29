@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 function HomePage(user) {
-  const sessionUserId = useSelector(state => state.session.user.id);
+  const sessionUser = useSelector(state => state.session.user);
   const [data, setData] = useState([]);
   const [shares, setShares] = useState(0);
   const [stockSymbol, setStockSymbol] = useState('');
@@ -32,7 +32,7 @@ function HomePage(user) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUserId(1);
+    setUserId(sessionUser.id);
     setErrors([]);
     return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
     .catch(res => {
@@ -82,9 +82,6 @@ function HomePage(user) {
   
   return (
     <div className="main-page-container">
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
       <div className="search-div">
         <input
         id="search-field"
@@ -94,7 +91,7 @@ function HomePage(user) {
         // value={`${stockSymbol}`}  
         onChange={handleChange}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className="search-button" onClick={handleSearch}>Search</button>
       </div>
       <div>
         <form onSubmit={handleSubmit} id="portfolio-form">
@@ -102,7 +99,7 @@ function HomePage(user) {
             Shares
             <input
               type="text"
-              // value='shares'
+              id="shares-field"
               onChange={handleShares}
               required
             />
@@ -116,6 +113,9 @@ function HomePage(user) {
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
       </div>
       <div className="watchlist-container">
         <HotStocks />
