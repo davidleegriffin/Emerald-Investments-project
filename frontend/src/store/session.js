@@ -1,7 +1,9 @@
 import { fetch } from './csrf';
 
+
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+
 
 const setUser = (user) => {
   return {
@@ -29,9 +31,9 @@ export const login = (user) => async (dispatch) => {
   return response;
 };
 
-export const portfolioAdd = (stock) => async (dispatch) => {
+export const portfolioAdd = (stock) => async () => {
   const { stockSymbol, shares, userId } = stock;
-  console.log('session', userId, 'stock', stock);
+  console.log('in session-js', userId, 'stock', stock);
   const response = await fetch('/api/portfolio', {
     method: "POST",
     body: JSON.stringify({

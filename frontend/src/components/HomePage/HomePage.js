@@ -7,19 +7,19 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 
 
-function HomePage() {
+function HomePage(user) {
   const sessionUserId = useSelector(state => state.session.user.id);
   const [data, setData] = useState([]);
   const [shares, setShares] = useState(0);
   const [stockSymbol, setStockSymbol] = useState('');
-  const [userId, setUserId] = useState(1);
+  const [userId, setUserId] = useState();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   
   const handleChange = (e) => {
     e.preventDefault();
   };
-
+  
   const handleShares = (e) => {
     e.preventDefault();
     setShares(e.target.value);
@@ -29,10 +29,10 @@ function HomePage() {
     let input = document.getElementById('search-field');
     setStockSymbol(input.value);
   }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUserId(sessionUserId);
+    setUserId(1);
     setErrors([]);
     return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
     .catch(res => {
