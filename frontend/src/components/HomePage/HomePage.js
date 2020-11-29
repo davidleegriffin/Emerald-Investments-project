@@ -4,17 +4,26 @@ import NewsPage from '../NewsPage/NewsPage';
 import { Line } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function HomePage() {
+  const sessionUserId = useSelector(state => state.session.user.id);
   const [data, setData] = useState([]);
+  const [shares, setShares] = useState(0);
   const [stockSymbol, setStockSymbol] = useState('');
+  const [userId, setUserId] = useState(1);
   const dispatch = useDispatch();
-  
+  const [errors, setErrors] = useState([]);
   
   const handleChange = (e) => {
     e.preventDefault();
   };
+
+  const handleShares = (e) => {
+    e.preventDefault();
+    setShares(e.target.value);
+  }
   
   const handleSearch = (e) => {
     let input = document.getElementById('search-field');
@@ -23,8 +32,12 @@ function HomePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('add shares');
-    return dispatch(sessionActions.portfolioAdd({}))
+    setUserId(sessionUserId);
+    setErrors([]);
+    return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
+    .catch(res => {
+      if (res.data && res.data.errors) setErrors(res.data.errors);
+    });
 
   }
 
@@ -69,6 +82,9 @@ function HomePage() {
   
   return (
     <div className="main-page-container">
+      <ul>
+        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+      </ul>
       <div className="search-div">
         <input
         id="search-field"
@@ -86,7 +102,8 @@ function HomePage() {
             Shares
             <input
               type="text"
-              value='shares'
+              // value='shares'
+              onChange={handleShares}
               required
             />
           </label>

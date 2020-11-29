@@ -29,13 +29,15 @@ export const login = (user) => async (dispatch) => {
   return response;
 };
 
-export const portfolioAdd = () => async (dispatch) => {
+export const portfolioAdd = (stock) => async (dispatch) => {
+  const { stockSymbol, shares, userId } = stock;
+  console.log('session', userId, 'stock', stock);
   const response = await fetch('/api/portfolio', {
     method: "POST",
     body: JSON.stringify({
-      "stockSymbol": "arr",
-      "shares": "20",
-      "userId": "1"
+      stockSymbol,
+      shares,
+      userId,
     }),
   });
   return response;
