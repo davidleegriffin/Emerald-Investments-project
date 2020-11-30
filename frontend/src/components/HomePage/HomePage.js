@@ -3,20 +3,43 @@ import './HomePage.css';
 import NewsPage from '../NewsPage/NewsPage';
 import { Line } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
+import PortfolioList from '../WatchList/PortfolioList';
+import * as sessionActions from "../../store/session";
+import { useDispatch, useSelector } from "react-redux";
 
 
-function HomePage() {
+function HomePage(isLoaded) {
+  const sessionUser = useSelector(state => state.session.user);
   const [data, setData] = useState([]);
+  const [shares, setShares] = useState(0);
   const [stockSymbol, setStockSymbol] = useState('');
-  
+  const [userId, setUserId] = useState();
+  const dispatch = useDispatch();
+  const [errors, setErrors] = useState([]);
   
   const handleChange = (e) => {
     e.preventDefault();
   };
   
+  const handleShares = (e) => {
+    e.preventDefault();
+    setShares(e.target.value);
+  }
+  
   const handleSearch = (e) => {
     let input = document.getElementById('search-field');
     setStockSymbol(input.value);
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUserId(sessionUser.id);
+    setErrors([]);
+    return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
+    .catch(res => {
+      if (res.data && res.data.errors) setErrors(res.data.errors);
+    });
+
   }
 
   useEffect(() => {
@@ -49,7 +72,7 @@ function HomePage() {
     labels: [...dataLabel],
     datasets: [
       {
-        label: `${stockSymbol}`,
+        label: `${stockSymbol}`.toUpperCase(),
         data: [...dataPrice],
         fill: true,
         backgroundColor: "rgba(0,50,5,0.5)",
@@ -57,6 +80,17 @@ function HomePage() {
       }
     ]
   };
+
+  let portfolioList;
+  if (sessionUser) {
+    portfolioList = (
+      <PortfolioList user={ sessionUser }/>
+    );
+  } else {
+    portfolioList = (
+      <HotStocks />
+    );
+  }
   
   return (
     <div className="main-page-container">
@@ -68,18 +102,35 @@ function HomePage() {
         defaultValue="SPY"  
         // value={`${stockSymbol}`}  
         onChange={handleChange}
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+        />
+        <button className="search-button" onClick={handleSearch}>Search</button>
+      </div>
+      <div>
+        <form onSubmit={handleSubmit} id="portfolio-form">
+          <label className="shares-input">
+            Shares
+            <input
+              type="text"
+              id="shares-field"
+              onChange={handleShares}
+              required
+            />
+          </label>
+          <button className="add-portfolio" type="submit">Add</button>
+        </form>
+      </div>
       <div className="stockChart">
         <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
-        <Line data={chartData} />
+        <Line id="chart" data={chartData} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
       </div>
       <div className="watchlist-container">
-        <HotStocks />
+        {isLoaded && portfolioList}
       </div>
     </div>
   )
