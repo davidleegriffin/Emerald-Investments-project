@@ -18,45 +18,34 @@
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.15);
   font-family: Nunito, sans-serif;
-  border: 2px solid red;
+  border: 2px solid black;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
+  animation-name: rainbow-main;
+  animation-delay: 5s;
+  animation-duration: 90s;
+  animation-iteration-count: infinite;
+}
+
+#search-field {
+  background: black;
+  border-radius: 25px;
+  font-family: Nunito, sans-serif;
+  font-weight: 800;
+  color: white;
+  text-align: center;
 }
 
 .search-button {
   font-family: Nunito, sans-serif;
   font-weight: 700;
   border-radius: 25px;
-  background: rgba(255,150,150,0.5);
+  /* background: rgba(255,150,150,0.5); */
 }
 
-.add-portfolio {
-  font-family: Nunito, sans-serif;
-  font-weight: 700;
-  border-radius: 25px;
-  background: rgba(255,150,150,0.5);
 
-}
-
-#search-field {
-  background: rgba(0,255,50,0.5);
-  border-radius: 25px;
-  font-family: Nunito, sans-serif;
-  font-weight: 800;
-  color: black;
-  text-align: center;
-}
-
-#shares-field {
-  background: rgba(0,255,50,0.5);
-  border-radius: 25px;
-  color: black;
-  font-family: Nunito, sans-serif;
-  font-weight: 800;
-  text-align: center;
-}
 
 #portfolio-form {
   background: rgba(255, 255, 255, 0.15);
@@ -64,14 +53,33 @@
   color: white;
   font-family: Nunito, sans-serif;
   font-weight: 600;
-  border: 2px solid red;
-  padding-left: 20px;
-  padding-right: 20px;
+  border: 2px solid black;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+  animation-name: rainbow-main;
+  animation-delay: 35s;
+  animation-duration: 120s;
+  animation-iteration-count: infinite;
 }
 
+#shares-field {
+  background: black;
+  border-radius: 25px;
+  width: 55%;
+  color: white;
+  font-family: Nunito, sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
 
+.add-portfolio {
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  border-radius: 25px;
+  /* background: rgba(255,150,150,0.5); */
+}
 
 .graphName {
   margin-left: 130px;
@@ -80,10 +88,14 @@
 }
 
 .stockChart {
-  display: grid;
-  width: 100%;
+  display: flexbox;
+  width: 80%;
   background-color: rgba(255, 255, 255, 0.15);
   grid-column-start: 1;
+}
+
+#chart {
+  width: 100%;
 }
 
 .news-page-container {
@@ -101,4 +113,51 @@
   color: black;
   background-color: white;
   margin-right: 10px;
+}
+
+@keyframes rainbow-main {
+  0%   {
+        box-shadow: 0px 0px 20px 0px rgba(255, 0, 0, .3);
+        /* background-color: rgba(255, 0, 0, 1); */
+      }
+  10%  {
+        box-shadow: 0px 0px 15px 0px rgba(255, 165, 0, .3); 
+        /* background-color: rgba(255,165,0,1); */
+      }
+  20%  {
+        box-shadow: 0px 0px 20px 0px rgba(255,255,0, .3); 
+        /* background-color: rgba(255,255,0,1); */
+      }
+  30%  {
+        box-shadow: 0px 0px 15px 0px rgba(0, 255, 0, .3); 
+        /* background-color: rgba(0, 255, 0, 1); */
+        }
+  40%  {
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 255, .3); 
+        /* background-color: rgba(0, 0, 255, 1); */
+      }
+  50%  {
+        box-shadow: 0px 0px 15px 0px rgba(238,130,238, .3); 
+        /* background-color: rgba(238,130,238, 1); */
+      }
+  60%  {
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 255, .3); 
+        /* background-color: rgba(0, 0, 255, 1); */
+      }
+  70%  {
+        box-shadow: 0px 0px 15px 0px rgba(0, 255, 0, .3); 
+        /* background-color: rgba(0, 255, 0, 1); */
+      }
+  80%  {
+        box-shadow: 0px 0px 20px 0px rgba(255, 255, 0, .3); 
+        /* background-color: rgba(255,255,0,1); */
+      }
+  90%  {
+        box-shadow: 0px 0px 15px 0px rgba(255, 165, 0, .3); 
+        /* background-color: rgba(255,165,0,1); */
+      }
+ 100%  {
+        box-shadow: 0px 0px 20px 0px rgba(255, 0, 0, .3); 
+        /* background-color: rgba(255, 0, 0, 1); */
+      }
 }

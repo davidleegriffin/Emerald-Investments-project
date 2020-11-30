@@ -73,9 +73,9 @@
   border: 1px solid black;
   background-color: transparent;
   border-radius: 50%;
-  animation-name: rainbow;
+  /* animation-name: rainbow;
   animation-duration: 60s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: infinite; */
 }
 
 .profile-dropdown {

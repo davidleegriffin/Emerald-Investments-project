@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
         <div className="emerald-wrapper">
           <img src="./images/emerald.png" width="30px" alt="emerald-logo" />
         </div>
-        <NavLink className="navbar-links__home" exact to="/">Home</NavLink>
+        <NavLink className="navbar-links__home" exact to="/">Emerald Investments</NavLink>
       </div> 
       <div className="login">
         {isLoaded && sessionLinks}

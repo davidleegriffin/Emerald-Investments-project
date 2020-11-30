@@ -3,11 +3,12 @@ import './HomePage.css';
 import NewsPage from '../NewsPage/NewsPage';
 import { Line } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
+import PortfolioList from '../WatchList/PortfolioList';
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 
 
-function HomePage(user) {
+function HomePage(isLoaded) {
   const sessionUser = useSelector(state => state.session.user);
   const [data, setData] = useState([]);
   const [shares, setShares] = useState(0);
@@ -79,6 +80,17 @@ function HomePage(user) {
       }
     ]
   };
+
+  let portfolioList;
+  if (sessionUser) {
+    portfolioList = (
+      <PortfolioList user={ sessionUser }/>
+    );
+  } else {
+    portfolioList = (
+      <HotStocks />
+    );
+  }
   
   return (
     <div className="main-page-container">
@@ -109,7 +121,7 @@ function HomePage(user) {
       </div>
       <div className="stockChart">
         <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
-        <Line data={chartData} />
+        <Line id="chart" data={chartData} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>
@@ -118,7 +130,7 @@ function HomePage(user) {
         </ul>
       </div>
       <div className="watchlist-container">
-        <HotStocks />
+        {isLoaded && portfolioList}
       </div>
     </div>
   )
