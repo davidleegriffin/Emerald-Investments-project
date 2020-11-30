@@ -14,6 +14,20 @@
   justify-content: center;
 }
 
+.portfolio-banner {
+  align-content: center;
+  margin-left: 33%;
+}
+
+.stock-symbol-portfolio {
+  font-family: Nunito, sans-serif;
+  font-size: xx-large;
+  font-weight: 800;
+  margin-top: 23%;
+  display: flex;
+  justify-content: center;
+}
+
 .green-arrow {
   margin-left: 10px;
   margin-right: 10px;

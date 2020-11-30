@@ -12,13 +12,15 @@ function HomePage(isLoaded) {
   const sessionUser = useSelector(state => state.session.user);
   const [data, setData] = useState([]);
   const [shares, setShares] = useState(0);
-  const [stockSymbol, setStockSymbol] = useState('');
+  const [stockSymbol, setStockSymbol] = useState();
   const [userId, setUserId] = useState();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
+  const [portfolio, setPortfolio] = useState([]);
   
   const handleChange = (e) => {
     e.preventDefault();
+    setStockSymbol(e.target.value);
   };
   
   const handleShares = (e) => {
@@ -35,6 +37,8 @@ function HomePage(isLoaded) {
     e.preventDefault();
     setUserId(sessionUser.id);
     setErrors([]);
+    setPortfolio(stockSymbol);
+    // console.log('post-push', portfolio)
     return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
     .catch(res => {
       if (res.data && res.data.errors) setErrors(res.data.errors);
@@ -82,9 +86,10 @@ function HomePage(isLoaded) {
   };
 
   let portfolioList;
+  // console.log('homepage', portfolio);
   if (sessionUser) {
     portfolioList = (
-      <PortfolioList user={ sessionUser }/>
+      <PortfolioList portfolio={ portfolio }/>
     );
   } else {
     portfolioList = (
