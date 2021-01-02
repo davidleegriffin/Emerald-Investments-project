@@ -3,28 +3,100 @@
   src: url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900');
 }
 
-.form-wrapper {
-  display: flex;
-  justify-content: center;
+body {
+  background-image: url("https://www.ireland-information.com/public-domain-photographs-of-ireland/photos/thumbnails/Donegal-scene-s1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: Nunito, sans-serif;
 }
 
-.form-login {
+.form-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+  border-radius: 10px;
+}
+
+.form-wrapper h2 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.form-wrapper .input-wrapper {
+  position: relative;
+}
+
+.form-wrapper .input-wrapper input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.form-wrapper .input-wrapper label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.form-wrapper .input-wrapper input:focus ~ label,
+.form-wrapper .input-wrapper input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03a9f4;
+  font-size: 12px;
+}
+
+.form-wrapper input[type="submit"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #03a9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+/* .form-login {
   display: flex;
   width: 400px;
   height: 100px;
-  /* border: 1px solid black; */
-  /* border-radius: 10px; */
+  border: 1px solid black; 
+  border-radius: 10px;
   background-color: black;
   box-shadow: 0px 2px #18580b;
-}
+} */
 
-.input-wrapper {
+/* .input-wrapper {
   margin-top: 7px;
   display: flex;
   flex-direction: column;
-}
+} */
 
-.login-form__label--name {
+/* .login-form__label--name {
   color: white;
   font-family: Nunito, sans-serif;
 }
@@ -65,6 +137,6 @@
   justify-content: center;
   box-shadow: 3px 3px #18580b;
   border-radius: 25px;
-}
+} */
 
 
