@@ -6,12 +6,12 @@ import './Navigation.css';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
-  
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -20,7 +20,7 @@ function ProfileButton({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-  
+
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -32,7 +32,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu} className="userIcon">
-        <img src="./images/pot-o-gold.png" width="80px" className="is-selected" alt="pot-o-gold"/>
+        <img src="./images/pot-o-gold.png" width="37px" className="is-selected" alt="pot-o-gold"/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
