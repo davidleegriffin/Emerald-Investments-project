@@ -33,7 +33,7 @@ function LoginFormPage() {
 
   return (
     <div className="form-wrapper">
-    <form className="form-login" onSubmit={handleSubmit} id="loginForm">
+    <form className="form-login" onSubmit={handleSubmit} id="loginForm" autoComplete="off">
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
@@ -42,25 +42,27 @@ function LoginFormPage() {
         Username or Email
         <input
           type="text"
+          autoComplete="off"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
           className="login-form__name"
-          placeholder="name"
+          // placeholder="name"
         />
       </label>
-      <label className="login-form__label--password">
+      <div className="login-form__label--password">
         Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="login-form__password"
-          placeholder="password"    
-        />
-      </label>
-      </div>  
+      </div>
+      <input
+        type="password"
+        autoComplete="new-password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        className="login-form__password"
+        // placeholder="password"
+      />
+      </div>
       <button type="submit" className="login-form__button">Log In</button>
       </form>
       </div>

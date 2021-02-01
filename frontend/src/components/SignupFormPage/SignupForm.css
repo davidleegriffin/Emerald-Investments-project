@@ -4,6 +4,8 @@
 }
 
 .form-signup__wrapper {
+  position: relative;
+  top: 150px;
   display: flex;
   flex-direction: column;
   width: 350px;
