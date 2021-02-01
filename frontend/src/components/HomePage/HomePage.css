@@ -4,81 +4,90 @@
 } */
 
 .main-page-container {
-  margin-top: 7%;
+  margin-top: 8%;
   margin-left: 2%;
-  width: 80%;
+  width: 100%;
   display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 50px;
+  grid-template-columns: auto auto auto;
+  grid-gap: 60px;
 }
 
 .search-div {
+  position: fixed;
+  top: 40px;
+  left: 250px;
+  grid-column-start: 2;
+  width: 25%;
+  height: 23px;
   display: flex;
-  justify-content: center;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(48, 48, 70, 0.5);
+  outline: none;
   font-family: Nunito, sans-serif;
-  border: 2px solid black;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  animation-name: rainbow-main;
-  animation-delay: 5s;
-  animation-duration: 90s;
-  animation-iteration-count: infinite;
+  /* margin-top: -10px; */
+  z-index: 20;
 }
 
 #search-field {
-  background: black;
-  border-radius: 25px;
-  font-family: Nunito, sans-serif;
-  font-weight: 800;
+  width: 100%;
+  background: transparent;
   color: white;
-  text-align: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-family: Nunito, sans-serif;
+  font-size: 18px;
+  font-weight: 100;
+  /* text-align: center; */
+}
+
+#search-field:focus,
+#search-field:hover {
+  border-bottom: 1px solid green;
 }
 
 .search-button {
+  outline: none;
+  border: none;
   font-family: Nunito, sans-serif;
-  font-weight: 700;
-  border-radius: 25px;
-  /* background: rgba(255,150,150,0.5); */
+  box-shadow: none;
+  background: transparent;
+  /* margin-left: -50px; */
 }
 
 
 
 #portfolio-form {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 25px;
-  color: white;
   font-family: Nunito, sans-serif;
-  font-weight: 600;
-  border: 2px solid black;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
-  animation-name: rainbow-main;
-  animation-delay: 35s;
-  animation-duration: 120s;
-  animation-iteration-count: infinite;
 }
 
 #shares-field {
-  background: black;
-  border-radius: 25px;
-  width: 55%;
-  color: white;
+  background: transparent;
+  width: 25%;
   font-family: Nunito, sans-serif;
-  font-weight: 800;
   text-align: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+#shares-field:hover,
+#shares-field:focus {
+  border-bottom: 1px solid green;
+
 }
 
 .add-portfolio {
   font-family: Nunito, sans-serif;
-  font-weight: 700;
-  border-radius: 25px;
-  /* background: rgba(255,150,150,0.5); */
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .graphName {
@@ -89,8 +98,9 @@
 
 .stockChart {
   display: flexbox;
-  width: 80%;
-  background-color: rgba(255, 255, 255, 0.15);
+  width: 800px;
+  /* border: 1px solid rgba(48, 48, 70, 0.7); */
+  background-color: rgba(255, 255, 255, 0.005);
   grid-column-start: 1;
 }
 
@@ -107,12 +117,15 @@
 .watchlist-container {
   position: sticky;
   top: -90%;
-  grid-column-start: 2;
-  border-radius: 25px;
+  grid-column-start: 3;
+  border: 1px solid rgba(48, 48, 70, 0.5);
+  border-radius: 10px;
   height: 30%;
-  color: black;
-  background-color: white;
-  margin-right: 10px;
+  color: white;
+  font-family: Nunito, sans-serif;
+  background-color: rgba(30,30,30,0.25);
+  margin-left: -150px;
+  margin-right: 50px;
 }
 
 @keyframes rainbow-main {

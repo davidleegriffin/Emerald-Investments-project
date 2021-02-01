@@ -17,22 +17,22 @@ function HomePage(isLoaded) {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [portfolio, setPortfolio] = useState([]);
-  
+
   const handleChange = (e) => {
     e.preventDefault();
     setStockSymbol(e.target.value);
   };
-  
+
   const handleShares = (e) => {
     e.preventDefault();
     setShares(e.target.value);
   }
-  
+
   const handleSearch = (e) => {
     let input = document.getElementById('search-field');
     setStockSymbol(input.value);
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setUserId(sessionUser.id);
@@ -60,7 +60,7 @@ function HomePage(isLoaded) {
     }
     refresh();
   }, [stockSymbol]);
-  
+
 
   let dataPrice = [];
   let dataLabel = [];
@@ -78,7 +78,7 @@ function HomePage(isLoaded) {
       {
         label: `${stockSymbol}`.toUpperCase(),
         data: [...dataPrice],
-        fill: true,
+        fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
         borderColor: "rgb(0,200,5,1)"
       }
@@ -96,24 +96,23 @@ function HomePage(isLoaded) {
       <HotStocks />
     );
   }
-  
+
   return (
     <div className="main-page-container">
       <div className="search-div">
+        <button className="search-button" onClick={handleSearch}><img src="./images/magnify-glass.png" width="20" />Search</button>
         <input
         id="search-field"
         type="text"
         placeholder="Enter Stock Symbol"
-        defaultValue="SPY"  
-        // value={`${stockSymbol}`}  
+        defaultValue="SPY"
+        // value={`${stockSymbol}`}
         onChange={handleChange}
         />
-        <button className="search-button" onClick={handleSearch}>Search</button>
       </div>
       <div>
         <form onSubmit={handleSubmit} id="portfolio-form">
           <label className="shares-input">
-            Shares
             <input
               type="text"
               id="shares-field"
@@ -121,7 +120,7 @@ function HomePage(isLoaded) {
               required
             />
           </label>
-          <button className="add-portfolio" type="submit">Add</button>
+          <button className="add-portfolio" type="submit">Add Shares to Portfolio</button>
         </form>
       </div>
       <div className="stockChart">
