@@ -33,38 +33,42 @@ function LoginFormPage() {
 
   return (
     <div className="form-wrapper">
-    <form className="form-login" onSubmit={handleSubmit} id="loginForm" autoComplete="off">
+
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <div className="input-wrapper">
-      <label className="login-form__label--name">
-        Username or Email
-        <input
-          type="text"
-          autoComplete="off"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-          className="login-form__name"
-          // placeholder="name"
-        />
-      </label>
-      <div className="login-form__label--password">
-        Password
-      </div>
-      <input
-        type="password"
-        autoComplete="new-password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        className="login-form__password"
-        // placeholder="password"
-      />
-      </div>
-      <button type="submit" className="login-form__button">Log In</button>
-      </form>
+
+      <form className="form-login" onSubmit={handleSubmit} id="loginForm" autoComplete="off">
+        <div><h2>LOGIN</h2></div>
+        <div className="input-wrapper">
+
+          <input
+            type="text"
+            autoComplete="off"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+            className="login-form__input"
+            required=""
+          />
+          <label className="login-form__label--name">Username or Email</label>
+
+          <input
+            type="password"
+            autoComplete="new-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="login-form__input"
+            required=""
+          />
+          <label className="login-form__label--password">Password</label>
+        <button type="submit" className="login-form__button">Log In</button>
+        </div>
+
+
+        </form>
+
       </div>
   );
 }
