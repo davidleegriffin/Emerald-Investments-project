@@ -34,7 +34,7 @@ function LoginFormPage() {
   return (
     <div className="form-wrapper">
 
-      <ul>
+      <ul className="login__errors">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
 
@@ -49,7 +49,7 @@ function LoginFormPage() {
             onChange={(e) => setCredential(e.target.value)}
             required
             className="login-form__input--name"
-            required=""
+            required=" "
           />
           <label className="login-form__label--name">Username or Email</label>
 
@@ -60,7 +60,7 @@ function LoginFormPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
             className="login-form__input--password"
-            required=""
+            required=" "
           />
           <label className="login-form__label--password">Password</label>
         <button type="submit" className="login-form__button">Log In</button>
