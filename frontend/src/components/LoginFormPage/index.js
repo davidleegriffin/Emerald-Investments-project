@@ -48,7 +48,7 @@ function LoginFormPage() {
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
-            className="login-form__input"
+            className="login-form__input--name"
             required=""
           />
           <label className="login-form__label--name">Username or Email</label>
@@ -59,7 +59,7 @@ function LoginFormPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="login-form__input"
+            className="login-form__input--password"
             required=""
           />
           <label className="login-form__label--password">Password</label>

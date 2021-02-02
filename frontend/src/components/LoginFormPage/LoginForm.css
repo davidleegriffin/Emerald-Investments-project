@@ -6,7 +6,7 @@
 .form-wrapper {
   position: absolute;
   top: 25%;
-  left: 25%;
+  left: 35%;
   transform: transition(-50%, -50%);
   width: 400px;
   height: 350px;
@@ -33,6 +33,7 @@
   padding: 0;
   color: #fff;
   margin-left: 30%;
+  margin-bottom: 50px;
 }
 
 .input-wrapper {
@@ -47,7 +48,8 @@
   font-family: Nunito, sans-serif;
 } */
 
-.login-form__input {
+.login-form__input--name,
+.login-form__input--password {
   font-family: Nunito, sans-serif;
   font-size: 16px;
   color: #fff;
@@ -59,7 +61,7 @@
   margin-bottom: 30px;
 }
 
-.input-wrapper label {
+/* .login-form__input label {
   position: absolute;
   top: -6px;
   left: 0;
@@ -68,9 +70,9 @@
   color: #fff;
   pointer-events:none;
   transition: 0.5s;
-}
+} */
 
-/* .login-form__label--name {
+.login-form__label--name {
   position: absolute;
   top: -6px;
   left: 0;
@@ -90,10 +92,14 @@
   color: #fff;
   pointer-events:none;
   transition: 0.5s;
-} */
+}
 
-.login-form__input:focus ~ label {
+.login-form__input--name:focus ~ .login-form__label--name {
   top: -30px;
+}
+
+.login-form__input--password:focus ~ .login-form__label--password {
+  top: 21px;
 }
 
 .login-form__button {
