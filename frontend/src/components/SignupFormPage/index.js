@@ -36,64 +36,66 @@ function SignupFormPage() {
 
 
   return (
-    <form onSubmit={handleSubmit} id="signupForm">
+    <div>
       <div className="form-signup__wrapper">
-        <div><h2>SIGNUP</h2></div>
-        <div className="input-wrapper"></div>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="signup-fields--email"
-            autoComplete="off"
-            required=" "
-          />
-          <label className="signup-label--email">
-            Email
-          </label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            className="signup-fields--username"
-            autoComplete="off"
-            required=" "
-          />
-          <label className="signup-label--username">
-            Username
-          </label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="signup-fields--password"
-            autoComplete="new-password"
-            required=" "
-          />
-          <label className="signup-label--password">
-            Password
-          </label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            className="signup-fields--confirm"
-            autoComplete="new-password"
-            required=" "
+        <form onSubmit={handleSubmit} id="signupForm">
+          <div><h2>SIGNUP</h2></div>
+          <div className="input-wrapper"></div>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="signup-fields--email"
+              autoComplete="off"
+              required=" "
             />
-          <label className="signup-label--confirm">Confirm Password</label>
-        <div>
-          <button className="signup-button" type="submit">Sign Up</button>
-        </div>
+            <label className="signup-label--email">
+              Email
+            </label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="signup-fields--username"
+              autoComplete="off"
+              required=" "
+            />
+            <label className="signup-label--username">
+              Username
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="signup-fields--password"
+              autoComplete="new-password"
+              required=" "
+            />
+            <label className="signup-label--password">
+              Password
+            </label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              className="signup-fields--confirm"
+              autoComplete="new-password"
+              required=" "
+              />
+            <label className="signup-label--confirm">Confirm Password</label>
+          <div>
+            <button className="signup-button" type="submit">Sign Up</button>
+          </div>
+          <ul>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+        </form>
       </div>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-    </form>
+    </div>
   );
 }
 
