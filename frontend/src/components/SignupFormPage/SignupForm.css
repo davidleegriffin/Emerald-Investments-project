@@ -19,7 +19,7 @@
 
 .input-wrapper {
   position: relative;
-  margin-top: 7px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -70,6 +70,13 @@
   transition: 0.5s;
 }
 
+.signup-fields--email:hover ~ .signup-label--email,
+.signup-fields--email:valid ~ .signup-label--email {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+}
+
 .signup-fields--username {
   font-family: Nunito, sans-serif;
   font-size: 16px;
@@ -93,6 +100,13 @@
   color: #fff;
   pointer-events:none;
   transition: 0.5s;
+}
+
+.signup-fields--username:hover ~ .signup-label--username,
+.signup-fields--username:valid ~ .signup-label--username {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
 }
 
 .signup-fields--password {
@@ -119,6 +133,13 @@
   transition: 0.5s;
 }
 
+.signup-fields--password:hover ~ .signup-label--password,
+.signup-fields--password:valid ~ .signup-label--password {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+}
+
 .signup-fields--confirm {
   font-family: Nunito, sans-serif;
   font-size: 16px;
@@ -134,8 +155,8 @@
 .signup-label--confirm {
   font-family: Nunito, sans-serif;
   position: relative;
-  /* width: 400px; */
-  top: -69px;
+  width: 400px;
+  top: -20px;
   left: 10px;
   /* margin-right: 20px; */
   /* padding: 10px 0; */
@@ -145,17 +166,28 @@
   transition: 0.5s;
 }
 
+.signup-fields--confirm:hover ~ .signup-label--confirm,
+.signup-fields--confirm:valid ~ .signup-label--confirm {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+
+}
+
 .signup-button {
-  width: 120px;
-  height: 50px;
-  /* padding: 15px; */
-  margin-top: 30px;
-  /* border-radius: 30px; */
-  font-family: Nunito, sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  padding: 10px;
-  box-shadow: 4px 4px #18580b;
+    font-family: Nunito, sans-serif;
+    font-size: large;
+    font-weight: 600;
+    width: 88px;
+    height: 38px;
+    margin-top: 30px;
+    margin-left: 30%;
+    align-items: center;
+    background-color: rgba(0, 128, 0, 0.5);
+    color: white;
+    box-shadow: none;
+    border: none;
+    outline: none;
 }
 
 input:focus {

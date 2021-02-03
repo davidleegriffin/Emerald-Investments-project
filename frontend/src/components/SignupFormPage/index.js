@@ -86,7 +86,9 @@ function SignupFormPage() {
             required=" "
             />
           <label className="signup-label--confirm">Confirm Password</label>
-        <button className="signup-button" type="submit">Sign Up</button>
+        <div>
+          <button className="signup-button" type="submit">Sign Up</button>
+        </div>
       </div>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
