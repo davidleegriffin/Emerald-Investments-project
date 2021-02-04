@@ -2,7 +2,7 @@ import React from 'react';
 import './WatchList.css';
 
 function PortfolioDetail(props) {
-  console.log('portfolioDetail', props.stocks)
+  // console.log('portfolioDetail', props.stocks)
   if (props.stocks === 'undefined') {
     return ('');
   } else {

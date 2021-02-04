@@ -51,6 +51,7 @@ function HomePage(isLoaded) {
     const stockFetch = async () => {
       const response = await fetch(url);
       const quotes = await response.json();
+      console.log("quotes", quotes[99]);
       setData(quotes);
     }
     window.onload = handleSearch();
@@ -60,7 +61,6 @@ function HomePage(isLoaded) {
     }
     refresh();
   }, [stockSymbol]);
-
 
   let dataPrice = [];
   let dataLabel = [];
@@ -85,8 +85,10 @@ function HomePage(isLoaded) {
     ]
   };
 
+  console.log('dataPrice', dataPrice[99]);
+
   let portfolioList;
-  // console.log('homepage', portfolio);
+
   if (sessionUser) {
     portfolioList = (
       <PortfolioList portfolio={ portfolio }/>
@@ -125,6 +127,7 @@ function HomePage(isLoaded) {
       </div>
       <div className="stockChart">
         <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
+        <h2 className="graphName">{`${dataPrice[99]}`}</h2>
         <Line id="chart" data={chartData} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />

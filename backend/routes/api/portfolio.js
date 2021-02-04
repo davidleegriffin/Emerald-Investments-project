@@ -9,7 +9,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const { stockSymbol, shares, userId } = req.body;
     const stock = await Portfolio.portfolioAdd({ stockSymbol, shares, userId });
-    console.log(stock);
+    // console.log(stock);
     return res.json({
       stock,
     });

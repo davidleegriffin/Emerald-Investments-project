@@ -47,7 +47,7 @@ export const demoLogin = () => async (dispatch) => {
 
 export const portfolioAdd = (stock) => async () => {
   const { stockSymbol, shares, userId } = stock;
-  console.log('in session-js', userId, 'stock', stock);
+  // console.log('in session-js', userId, 'stock', stock);
   const response = await fetch('/api/portfolio', {
     method: "POST",
     body: JSON.stringify({
