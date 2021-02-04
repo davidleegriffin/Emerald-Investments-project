@@ -31,6 +31,20 @@ export const login = (user) => async (dispatch) => {
   return response;
 };
 
+export const demoLogin = () => async (dispatch) => {
+  let credential = "demo@user.io";
+  let password = "password";
+  const response = await fetch('/api/session', {
+    method: 'POST',
+    body: JSON.stringify({
+      credential,
+      password,
+    }),
+  });
+  dispatch(setUser(response.data.user));
+  return response;
+};
+
 export const portfolioAdd = (stock) => async () => {
   const { stockSymbol, shares, userId } = stock;
   console.log('in session-js', userId, 'stock', stock);

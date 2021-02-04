@@ -25,6 +25,16 @@ function LoginFormPage() {
       });
   };
 
+  const demoSubmit = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    resetForm();
+    return dispatch(sessionActions.demoLogin( ))
+      .catch((res) => {
+        if (res.data && res.data.errors) setErrors(res.data.errors);
+      });
+  };
+
   const resetForm = () => {
     document.getElementById("loginForm").reset();
   };
@@ -50,6 +60,7 @@ function LoginFormPage() {
             required
             className="login-form__input--name"
             required=" "
+            name=""
           />
           <label className="login-form__label--name">Username or Email</label>
 
@@ -61,9 +72,11 @@ function LoginFormPage() {
             required
             className="login-form__input--password"
             required=" "
+            name=""
           />
           <label className="login-form__label--password">Password</label>
         <button type="submit" className="login-form__button">Log In</button>
+        <button className="login-form__button--demo" onClick={demoSubmit}>Demo Login</button>
         </div>
 
 
