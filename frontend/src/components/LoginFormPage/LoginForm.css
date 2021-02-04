@@ -101,6 +101,7 @@
 }
 
 .login-form__input--name:focus ~ .login-form__label--name,
+.login-form__input--name:hover ~ .login-form__label--name,
 .login-form__input--name:valid ~ .login-form__label--name {
   top: -30px;
   color: rgba(0, 128, 0, 0.8);
@@ -108,6 +109,7 @@
 }
 
 .login-form__input--password:focus ~ .login-form__label--password,
+.login-form__input--password:hover ~ .login-form__label--password,
 .login-form__input--password:valid ~ .login-form__label--password {
   color: rgba(0, 128, 0, 0.8);
   font-size: 12px;
