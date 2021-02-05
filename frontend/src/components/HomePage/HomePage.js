@@ -20,7 +20,7 @@ function HomePage(isLoaded) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    // setStockSymbol(e.target.value);
+    setStockSymbol(e.target.value);
   };
 
   const handleShares = (e) => {
@@ -51,7 +51,7 @@ function HomePage(isLoaded) {
     const stockFetch = async () => {
       const response = await fetch(url);
       const quotes = await response.json();
-      console.log("quotes", quotes);
+      // console.log("quotes", quotes);
       setData(quotes);
     }
     window.onload = handleSearch();
@@ -66,11 +66,20 @@ function HomePage(isLoaded) {
   let dataLabel = [];
   // let dataVolume = [];
   data.forEach(quote => {
-    if (quote.average) {
-      dataPrice.push(quote.average);
+    if (quote.close) {
+      dataPrice.push(quote.close);
       dataLabel.push(quote.label);
     }
   });
+
+  let priceDifference = (dataPrice[dataPrice.length-1]) - (dataPrice[0]);
+  let lineColor="";
+  if(priceDifference >= 0) {
+    lineColor="green";
+  } else {
+    lineColor="red";
+  }
+
   const chartData = {
     labels: [...dataLabel],
     datasets: [
@@ -79,7 +88,7 @@ function HomePage(isLoaded) {
         data: [...dataPrice],
         fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
-        borderColor: "rgb(0,200,5,1)"
+        borderColor: `${lineColor}`
       }
     ]
   };
@@ -101,15 +110,15 @@ function HomePage(isLoaded) {
   return (
     <div className="main-page-container">
       <div className="search-div">
-        <button className="search-button" onClick={handleSearch}><img src="./images/magnify-glass.png" width="20" />Search</button>
-        <input
-        id="search-field"
-        type="text"
-        placeholder="Enter Stock Symbol"
-        defaultValue="SPY"
-        // value={`${stockSymbol}`}
-        onChange={handleChange}
-        />
+          <button className="search-button" onClick={handleSearch}><img src="./images/magnify-glass.png" width="20" /></button>
+          <input
+          id="search-field"
+          type="text"
+          placeholder="Enter Stock Symbol"
+          defaultValue="SPY"
+          // value={`${stockSymbol}`}
+          onChange={handleChange}
+          />
       </div>
       <div>
         <form onSubmit={handleSubmit} id="portfolio-form">
