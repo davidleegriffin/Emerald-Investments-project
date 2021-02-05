@@ -90,8 +90,13 @@
   box-shadow: none;
 }
 
+.banner__container {
+  display: inline-flex;
+  margin-left: 100px;
+}
+
 .graphName {
-  margin-left: 130px;
+  margin: 10px;
   color: white;
   font-family: Nunito, sans-serif;
 }

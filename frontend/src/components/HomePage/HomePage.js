@@ -20,7 +20,7 @@ function HomePage(isLoaded) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setStockSymbol(e.target.value);
+    // setStockSymbol(e.target.value);
   };
 
   const handleShares = (e) => {
@@ -47,11 +47,11 @@ function HomePage(isLoaded) {
   }
 
   useEffect(() => {
-    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=100`;
+    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=1000`;
     const stockFetch = async () => {
       const response = await fetch(url);
       const quotes = await response.json();
-      console.log("quotes", quotes[99]);
+      console.log("quotes", quotes);
       setData(quotes);
     }
     window.onload = handleSearch();
@@ -64,12 +64,11 @@ function HomePage(isLoaded) {
 
   let dataPrice = [];
   let dataLabel = [];
-  let dataVolume = [];
+  // let dataVolume = [];
   data.forEach(quote => {
-    if (quote.close) {
-      dataPrice.push(quote.close);
+    if (quote.average) {
+      dataPrice.push(quote.average);
       dataLabel.push(quote.label);
-      dataVolume.push(quote.volume/quote.close);
     }
   });
   const chartData = {
@@ -85,7 +84,7 @@ function HomePage(isLoaded) {
     ]
   };
 
-  console.log('dataPrice', dataPrice[99]);
+  console.log('dataPrice', dataPrice[dataPrice.length - 1]);
 
   let portfolioList;
 
@@ -126,8 +125,10 @@ function HomePage(isLoaded) {
         </form>
       </div>
       <div className="stockChart">
-        <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
-        <h2 className="graphName">{`${dataPrice[99]}`}</h2>
+        <span className="banner__container">
+          <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
+          <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
+        </span>
         <Line id="chart" data={chartData} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
