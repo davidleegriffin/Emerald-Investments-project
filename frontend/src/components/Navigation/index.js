@@ -14,10 +14,12 @@ function Navigation({ isLoaded }){
     );
   } else {
     sessionLinks = (
-      <div>
+      <div className="login-container__wrapper">
         <div className="login-container-div">
           <NavLink className="navbar-links__login" to="/login">Log In</NavLink>
-            <span className="navbar-span">or</span>
+        </div>
+        <span className="navbar-span">OR</span>
+        <div className="login-container-div">
           <NavLink className="navbar-links__login" to="/signup">Sign Up</NavLink>
         </div>
       </div>
@@ -31,10 +33,10 @@ function Navigation({ isLoaded }){
           <img src="./images/emerald.png" width="30px" alt="emerald-logo" />
         </div>
         <NavLink className="navbar-links__home" exact to="/">Emerald Investments</NavLink>
-      </div> 
+      </div>
       <div className="login">
         {isLoaded && sessionLinks}
-      </div>  
+      </div>
     </div>
   );
 }

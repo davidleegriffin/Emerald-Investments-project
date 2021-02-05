@@ -6,8 +6,8 @@ const PortfolioList = (props) => {
     const stock = (props.portfolio)
     portfolio[stock] = 0;
     const portfolioArray = Object.keys(portfolio);
-    console.log('portList', portfolioArray, stock);
-  
+    // console.log('portList', portfolioArray, stock);
+
     return (
       <div className="mover-container">
         <h1 className="portfolio-banner">Portfolio</h1>

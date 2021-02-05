@@ -4,50 +4,190 @@
 }
 
 .form-signup__wrapper {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  transform: transition(-50%, -50%);
+  width: 400px;
+  height: 375px;
+  padding: 40px;
+  background-color: rgba(10,10,10,0.8);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0, 0.5);
+  border-radius: 10px;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  width: 350px;
-  border: 1px solid black;
-  border-radius: 15px;
-  margin: auto;
-  background-color: black;
-  padding: 10px;
-  box-shadow: 2px 2px #13461b;
+}
+
+
+.form-signup__wrapper h2 {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  margin-left: 30%;
+  margin-bottom: 50px;
 }
 
 .signup-fields {
-  width: 90%;
-  padding: 15px;
-  margin-top: 10px;
-  margin-left: 7px;
-  display: inline-block;
-  border: none;
   font-family: Nunito, sans-serif;
-  color: white;
-  background: black;
-  box-shadow: 0px 2px #18580b;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  width: 80%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid green;
+  margin-bottom: 30px;
 }
 
-.signup-label {
-  text-align: center;
-  border-radius: 15px;
-  margin: 5px;
-  color: white;
+.signup-fields--email {
   font-family: Nunito, sans-serif;
-  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid green;
+  /* margin-bottom: 20px; */
+}
+
+.signup-label--email {
+  font-family: Nunito, sans-serif;
+  position: relative;
+  top: -20px;
+  left: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events:none;
+  transition: 0.5s;
+}
+
+.signup-fields--email:hover ~ .signup-label--email,
+.signup-fields--email:valid ~ .signup-label--email {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+}
+
+.signup-fields--username {
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid green;
+  /* margin-bottom: 30px; */
+}
+
+
+.signup-label--username {
+  font-family: Nunito, sans-serif;
+  position: relative;
+  top: -20px;
+  left: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events:none;
+  transition: 0.5s;
+}
+
+.signup-fields--username:hover ~ .signup-label--username,
+.signup-fields--username:valid ~ .signup-label--username {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+}
+
+.signup-fields--password {
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid green;
+  margin-bottom: 0px;
+}
+
+.signup-label--password {
+  font-family: Nunito, sans-serif;
+  position: relative;
+  top: -20px;
+  left: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events:none;
+  transition: 0.5s;
+}
+
+.signup-fields--password:hover ~ .signup-label--password,
+.signup-fields--password:valid ~ .signup-label--password {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+}
+
+.signup-fields--confirm {
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid green;
+  /* margin-bottom: 30px; */
+}
+
+.signup-label--confirm {
+  font-family: Nunito, sans-serif;
+  position: relative;
+  width: 400px;
+  top: -20px;
+  left: 10px;
+  /* margin-right: 20px; */
+  /* padding: 10px 0; */
+  font-size: 16px;
+  color: #fff;
+  pointer-events:none;
+  transition: 0.5s;
+}
+
+.signup-fields--confirm:hover ~ .signup-label--confirm,
+.signup-fields--confirm:valid ~ .signup-label--confirm {
+  top: -40px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+
 }
 
 .signup-button {
-  width: 120px;
-  height: 50px;
-  padding: 15px;
-  margin: auto;
-  border-radius: 30px;
-  font-family: Nunito, sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  padding: 10px;
-  box-shadow: 4px 4px #18580b;
+    font-family: Nunito, sans-serif;
+    font-size: large;
+    font-weight: 600;
+    width: 88px;
+    height: 38px;
+    margin-top: 30px;
+    margin-left: 30%;
+    align-items: center;
+    background-color: rgba(0, 128, 0, 0.5);
+    color: white;
+    box-shadow: none;
+    border: none;
+    outline: none;
 }
 
 input:focus {

@@ -14,6 +14,7 @@ body {
 
 .form-wrapper {
   position: absolute;
+<<<<<<< HEAD
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -91,46 +92,109 @@ body {
 } */
 
 /* .input-wrapper {
+=======
+  top: 25%;
+  left: 35%;
+  transform: transition(-50%, -50%);
+  width: 400px;
+  height: 375px;
+  padding: 40px;
+  background-color: rgba(10,10,10,0.8);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0, 0.5);
+  border-radius: 10px;
+}
+
+.login__errors {
+  color: white;
+}
+
+.form-login {
+  width: 400px;
+}
+
+.form-login h2 {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  margin-left: 30%;
+  margin-bottom: 50px;
+}
+
+.input-wrapper {
+  position: relative;
+>>>>>>> 554b1d46bc8ac1cee3ec7250d70d8228461faef8
   margin-top: 7px;
   display: flex;
   flex-direction: column;
 } */
 
+<<<<<<< HEAD
 /* .login-form__label--name {
   color: white;
+=======
+.login-form__input--name,
+.login-form__input--password {
+>>>>>>> 554b1d46bc8ac1cee3ec7250d70d8228461faef8
   font-family: Nunito, sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  width: 80%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid green;
+  margin-bottom: 30px;
 }
 
-.login-form__name {
+.login-form__label--name {
   font-family: Nunito, sans-serif;
-  color: white;
-  background: black;
-  width: 200px;
-  display: flex;
-  box-shadow: 0px 3px #18580b;
-  outline: none;
+  position: absolute;
+  top: -6px;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events:none;
+  transition: 0.5s;
 }
 
 .login-form__label--password {
   font-family: Nunito, sans-serif;
-  color: white;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events:none;
+  transition: 0.5s;
 }
 
-.login-form__password {
-  width: 200px;
-  display: flex;
-  font-family: Nunito, sans-serif;
-  background: black;
-  box-shadow: 0px 3px #18580b;
+.login-form__input--name:focus ~ .login-form__label--name,
+.login-form__input--name:hover ~ .login-form__label--name,
+.login-form__input--name:valid ~ .login-form__label--name {
+  top: -30px;
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+}
+
+.login-form__input--password:focus ~ .login-form__label--password,
+.login-form__input--password:hover ~ .login-form__label--password,
+.login-form__input--password:valid ~ .login-form__label--password {
+  color: rgba(0, 128, 0, 0.8);
+  font-size: 12px;
+  top: 21px;
 }
 
 .login-form__button {
-  display: flex;
   font-family: Nunito, sans-serif;
   font-size: large;
   font-weight: 600;
   width: 88px;
   height: 38px;
+<<<<<<< HEAD
   margin-top: 30px;
   margin-left: 30px;
   align-items: center;
@@ -138,5 +202,28 @@ body {
   box-shadow: 3px 3px #18580b;
   border-radius: 25px;
 } */
+=======
+  margin-top: 25px;
+  margin-left: 30%;
+  background-color: rgba(0, 128, 0, 0.5);
+  color: white;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+>>>>>>> 554b1d46bc8ac1cee3ec7250d70d8228461faef8
 
-
+.login-form__button--demo {
+  font-family: Nunito, sans-serif;
+  font-size: large;
+  font-weight: 600;
+  width: 88px;
+  height: 43px;
+  margin-top: 15px;
+  margin-left: 30%;
+  background-color: rgba(0, 128, 0, 0.5);
+  color: white;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}

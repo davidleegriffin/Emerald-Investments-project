@@ -17,22 +17,22 @@ function HomePage(isLoaded) {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [portfolio, setPortfolio] = useState([]);
-  
+
   const handleChange = (e) => {
     e.preventDefault();
     setStockSymbol(e.target.value);
   };
-  
+
   const handleShares = (e) => {
     e.preventDefault();
     setShares(e.target.value);
   }
-  
+
   const handleSearch = (e) => {
     let input = document.getElementById('search-field');
     setStockSymbol(input.value);
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setUserId(sessionUser.id);
@@ -47,10 +47,11 @@ function HomePage(isLoaded) {
   }
 
   useEffect(() => {
-    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=100`;
+    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=1000`;
     const stockFetch = async () => {
       const response = await fetch(url);
       const quotes = await response.json();
+      // console.log("quotes", quotes);
       setData(quotes);
     }
     window.onload = handleSearch();
@@ -60,33 +61,42 @@ function HomePage(isLoaded) {
     }
     refresh();
   }, [stockSymbol]);
-  
 
   let dataPrice = [];
   let dataLabel = [];
-  let dataVolume = [];
+  // let dataVolume = [];
   data.forEach(quote => {
     if (quote.close) {
       dataPrice.push(quote.close);
       dataLabel.push(quote.label);
-      dataVolume.push(quote.volume/quote.close);
     }
   });
+
+  let priceDifference = (dataPrice[dataPrice.length-1]) - (dataPrice[0]);
+  let lineColor="";
+  if(priceDifference >= 0) {
+    lineColor="green";
+  } else {
+    lineColor="red";
+  }
+
   const chartData = {
     labels: [...dataLabel],
     datasets: [
       {
         label: `${stockSymbol}`.toUpperCase(),
         data: [...dataPrice],
-        fill: true,
+        fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
-        borderColor: "rgb(0,200,5,1)"
+        borderColor: `${lineColor}`
       }
     ]
   };
 
+  console.log('dataPrice', dataPrice[dataPrice.length - 1]);
+
   let portfolioList;
-  // console.log('homepage', portfolio);
+
   if (sessionUser) {
     portfolioList = (
       <PortfolioList portfolio={ portfolio }/>
@@ -96,24 +106,23 @@ function HomePage(isLoaded) {
       <HotStocks />
     );
   }
-  
+
   return (
     <div className="main-page-container">
       <div className="search-div">
-        <input
-        id="search-field"
-        type="text"
-        placeholder="Enter Stock Symbol"
-        defaultValue="SPY"  
-        // value={`${stockSymbol}`}  
-        onChange={handleChange}
-        />
-        <button className="search-button" onClick={handleSearch}>Search</button>
+          <button className="search-button" onClick={handleSearch}><img src="./images/magnify-glass.png" width="20" /></button>
+          <input
+          id="search-field"
+          type="text"
+          placeholder="Enter Stock Symbol"
+          defaultValue="SPY"
+          // value={`${stockSymbol}`}
+          onChange={handleChange}
+          />
       </div>
       <div>
         <form onSubmit={handleSubmit} id="portfolio-form">
           <label className="shares-input">
-            Shares
             <input
               type="text"
               id="shares-field"
@@ -121,11 +130,14 @@ function HomePage(isLoaded) {
               required
             />
           </label>
-          <button className="add-portfolio" type="submit">Add</button>
+          <button className="add-portfolio" type="submit">Add Shares to Portfolio</button>
         </form>
       </div>
       <div className="stockChart">
-        <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
+        <span className="banner__container">
+          <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
+          <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
+        </span>
         <Line id="chart" data={chartData} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
