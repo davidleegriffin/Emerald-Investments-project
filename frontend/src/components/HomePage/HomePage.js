@@ -46,8 +46,16 @@ function HomePage(isLoaded) {
 
   }
 
+  // const testFunction = async () => {
+  //   const resTest = await fetch(`https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9`);
+  //   const quoteTest = await resTest.json();
+  //   console.log("quoteTest", quoteTest);
+  // }
+
+  // console.log("testFunction", testFunction());
+
   useEffect(() => {
-    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=1000`;
+    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
     const stockFetch = async () => {
       const response = await fetch(url);
       const quotes = await response.json();
