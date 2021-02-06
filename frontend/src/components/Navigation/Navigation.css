@@ -79,11 +79,7 @@
   background-color: transparent;
   border-radius: 50%;
   animation-name: rainbow;
-<<<<<<< HEAD
-  animation-duration: 60s;
-=======
   animation-duration: 30s;
->>>>>>> 554b1d46bc8ac1cee3ec7250d70d8228461faef8
   animation-iteration-count: infinite;
 }
 
