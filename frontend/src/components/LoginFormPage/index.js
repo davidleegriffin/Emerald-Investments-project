@@ -39,8 +39,6 @@ function LoginFormPage() {
     document.getElementById("loginForm").reset();
   };
 
-  // resetForm();
-
   return (
     <div className="form-wrapper">
 
@@ -57,7 +55,6 @@ function LoginFormPage() {
             autoComplete="off"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
-            required
             className="login-form__input--name"
             required=" "
             name=""
@@ -69,20 +66,21 @@ function LoginFormPage() {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
             className="login-form__input--password"
             required=" "
             name=""
           />
           <label className="login-form__label--password">Password</label>
-        <button type="submit" className="login-form__button">Log In</button>
-        <button className="login-form__button--demo" onClick={demoSubmit}>Demo Login</button>
+
+          <button type="submit" className="login-form__button">Log In</button>
+          <button className="login-form__button--demo" onClick={demoSubmit}>Demo Login</button>
+          
         </div>
 
 
-        </form>
+      </form>
 
-      </div>
+    </div>
   );
 }
 
