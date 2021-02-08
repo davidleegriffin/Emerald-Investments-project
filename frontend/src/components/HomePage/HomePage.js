@@ -59,7 +59,6 @@ function HomePage(isLoaded) {
     const stockFetch = async () => {
       const response = await fetch(url);
       const quotes = await response.json();
-      // console.log("quotes", quotes);
       setData(quotes);
     }
     window.onload = handleSearch();

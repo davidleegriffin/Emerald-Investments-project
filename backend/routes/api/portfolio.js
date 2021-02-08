@@ -16,4 +16,12 @@ router.post(
   }),
 );
 
+router.get(
+  '/',
+  asyncHandler(async (req, res) => {
+    const stocks = await Portfolio.findAll();
+    res.send(stocks);
+  }),
+);
+
 module.exports = router;
