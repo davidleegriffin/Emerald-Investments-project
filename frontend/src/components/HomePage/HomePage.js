@@ -16,7 +16,7 @@ function HomePage(isLoaded) {
   const [userId, setUserId] = useState();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
-  const [portfolio, setPortfolio] = useState([]);
+  const [portfolio, setPortfolio] = useState();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -46,13 +46,26 @@ function HomePage(isLoaded) {
 
   }
 
-  // const testFunction = async () => {
-  //   const resTest = await fetch(`https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9`);
-  //   const quoteTest = await resTest.json();
-  //   console.log("quoteTest", quoteTest);
-  // }
-
-  // console.log("testFunction", testFunction());
+  useEffect(() => {
+    const testFunction = async () => {
+      let userPortfolio = {};
+      const resTest = await fetch(`api/portfolio`);
+      const quoteTest = await resTest.json();
+      for (let i = 0; i < quoteTest.length; i++) {
+        // console.table("quoteTest", quoteTest[i]);
+        let currentValue = quoteTest[i].stockSymbol;
+        if (userPortfolio[currentValue] === undefined) {
+          userPortfolio[currentValue] = quoteTest[i].shares;
+        } else {
+          userPortfolio[currentValue] += quoteTest[i].shares;
+        }
+      }
+      setPortfolio(userPortfolio);
+    }
+    testFunction();
+  }, [stockSymbol]);
+  
+  console.log("portfolio", portfolio);
 
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
