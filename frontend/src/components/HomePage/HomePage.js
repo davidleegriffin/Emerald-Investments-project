@@ -46,13 +46,23 @@ function HomePage(isLoaded) {
 
   }
 
-  // const testFunction = async () => {
-  //   const resTest = await fetch(`https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9`);
-  //   const quoteTest = await resTest.json();
-  //   console.log("quoteTest", quoteTest);
-  // }
+  const testFunction = async () => {
+    let portfolio = {};
+    const resTest = await fetch(`api/portfolio`);
+    const quoteTest = await resTest.json();
+    // const ob1 = Object.assign({}, quoteTest);
+    // Object.assign(portfolio, quoteTest);
+    for (let [key, value] of Object.entries(quoteTest)) {
+      console.log(key, typeof value.stockSymbol, value.shares);
+      portfolio[value.stockSymbol] = value.shares;
+      console.log("portfolio", portfolio);
+    }
+    // quoteTest.forEach(quote => {
+      // console.table("quoteTest", quote);
+    // });
+  }
 
-  // console.log("testFunction", testFunction());
+  console.log("testFunction", testFunction());
 
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
