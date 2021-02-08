@@ -16,7 +16,7 @@ function HomePage(isLoaded) {
   const [userId, setUserId] = useState();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
-  const [portfolio, setPortfolio] = useState([]);
+  const [portfolio, setPortfolio] = useState();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -46,23 +46,26 @@ function HomePage(isLoaded) {
 
   }
 
-  const testFunction = async () => {
-    let portfolio = {};
-    const resTest = await fetch(`api/portfolio`);
-    const quoteTest = await resTest.json();
-    // const ob1 = Object.assign({}, quoteTest);
-    // Object.assign(portfolio, quoteTest);
-    for (let [key, value] of Object.entries(quoteTest)) {
-      console.log(key, typeof value.stockSymbol, value.shares);
-      portfolio[value.stockSymbol] = value.shares;
-      console.log("portfolio", portfolio);
+  useEffect(() => {
+    const testFunction = async () => {
+      let userPortfolio = {};
+      const resTest = await fetch(`api/portfolio`);
+      const quoteTest = await resTest.json();
+      for (let i = 0; i < quoteTest.length; i++) {
+        // console.table("quoteTest", quoteTest[i]);
+        let currentValue = quoteTest[i].stockSymbol;
+        if (userPortfolio[currentValue] === undefined) {
+          userPortfolio[currentValue] = quoteTest[i].shares;
+        } else {
+          userPortfolio[currentValue] += quoteTest[i].shares;
+        }
+      }
+      setPortfolio(userPortfolio);
     }
-    // quoteTest.forEach(quote => {
-      // console.table("quoteTest", quote);
-    // });
-  }
-
-  console.log("testFunction", testFunction());
+    testFunction();
+  }, [stockSymbol]);
+  
+  console.log("portfolio", portfolio);
 
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
