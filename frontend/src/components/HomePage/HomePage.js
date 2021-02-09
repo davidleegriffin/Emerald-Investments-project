@@ -47,7 +47,7 @@ function HomePage(isLoaded) {
   }
 
   useEffect(() => {
-    const testFunction = async () => {
+    const getPortfolio = async () => {
       let userPortfolio = {};
       const resTest = await fetch(`api/portfolio`);
       const quoteTest = await resTest.json();
@@ -62,10 +62,10 @@ function HomePage(isLoaded) {
       }
       setPortfolio(userPortfolio);
     }
-    testFunction();
-  }, [stockSymbol]);
+    getPortfolio();
+  }, []);
   
-  console.log("portfolio", portfolio);
+  // console.log("portfolio", portfolio);
 
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
@@ -113,7 +113,7 @@ function HomePage(isLoaded) {
     ]
   };
 
-  console.log('dataPrice', dataPrice[dataPrice.length - 1]);
+  // console.log('dataPrice', dataPrice[dataPrice.length - 1]);
 
   let portfolioList;
 
