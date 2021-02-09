@@ -4,23 +4,17 @@ import './WatchList.css';
 const PortfolioList = (props) => {
   let arrPortfolio = [];
   const stocks = (props.portfolio);
-  console.log("stocks", stocks);
-  // for (let key of Object.entries(stocks)) {
-  //   console.log("key", key);
-  //   arrPortfolio.push(key.toUpperCase());
-  // }
-  // console.log("stock-portfolio", Object.keys(stocks));
-
-  // arrPortfolio.push(Object.keys(stocks));
-    // portfolio[stock] = 0;
-    // const portfolioArray = Object.keys(portfolio);
-    // console.log('portList', portfolioArray, stock);
-  
+  console.log("props", (props.portfolio));
+  for (let sym in stocks) {
+    console.log("sym", sym);
+    arrPortfolio.push(sym);
+  }
+  console.log("arrPortfolio", arrPortfolio);
 
     return (
       <div className="mover-container">
         <h1 className="portfolio-banner">Portfolio</h1>
-        <div>{}</div>
+        <div></div>
       </div>
     );
 };
