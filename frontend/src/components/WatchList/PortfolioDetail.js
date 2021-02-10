@@ -4,7 +4,7 @@ import { Line } from "react-chartjs-2";
 
 function PortfolioDetail(props) {
   const [data, setData] = useState([]);
-  console.log('portfolioDetail', props.stock);
+  // console.log('portfolioDetail', props.stock);
 
   useEffect(() => {
     const stockFetch = async () => {
@@ -32,6 +32,27 @@ function PortfolioDetail(props) {
     lineColor="red";
   }
 
+  const options = {
+    maintainAspectRatio: true,
+    responsive: true,
+    legend: {
+      display: true
+    }, 
+    scales: {
+      xAxes: [{
+          ticks: {
+              display: false //this will remove only the label
+          }
+      }],
+      yAxes: [{
+        ticks: {
+            display: false //this will remove only the label
+        }
+    }]
+    },
+
+  }
+
   const chartData = {
     labels: [...dataLabel],
     datasets: [
@@ -51,9 +72,9 @@ function PortfolioDetail(props) {
     return (
       <div className="portfolio-container">
         <div>
-          <div className="stock-symbol-portfolio">{props.stock.toUpperCase()} 
-            {console.log("inside div", dataPrice)}  
-            <Line id="portfolioChart" data={chartData} width={150} height={250} options={{maintainAspectRatio: false}}/>
+          <div className="stock-symbol-portfolio"> 
+            <Line id="portfolioChart" data={chartData} options={options} />
+            <p>${dataPrice[`${ dataPrice.length -1 }`]}</p>
           </div>
         </div>
       </div>

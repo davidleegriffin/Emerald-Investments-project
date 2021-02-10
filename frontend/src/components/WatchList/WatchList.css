@@ -20,7 +20,9 @@
 }
 
 .stock-symbol-portfolio {
-  height: 250px;
+  width: 250px;
+  height: 150px;
+  display: inline-flex;
 }
 
 /* .stock-symbol-portfolio {
