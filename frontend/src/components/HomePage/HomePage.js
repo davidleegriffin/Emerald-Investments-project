@@ -116,7 +116,8 @@ function HomePage(isLoaded) {
     ]
   };
 
-  // console.log('dataPrice', dataPrice[dataPrice.length - 1]);
+  // console.log("dataPrice", dataPrice);
+  // console.log('chartData', chartData);
 
   let portfolioList;
 

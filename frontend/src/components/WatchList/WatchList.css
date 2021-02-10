@@ -8,7 +8,7 @@
 }
 
 .mover-container {
-  width: 300px;
+  width: 400px;
   height: auto;
   position: relative;
   justify-content: center;
@@ -20,13 +20,17 @@
 }
 
 .stock-symbol-portfolio {
+  height: 250px;
+}
+
+/* .stock-symbol-portfolio {
   font-family: Nunito, sans-serif;
   font-size: xx-large;
   font-weight: 800;
   margin-top: 23%;
   display: flex;
   justify-content: center;
-}
+} */
 
 .green-arrow {
   margin-left: 10px;
