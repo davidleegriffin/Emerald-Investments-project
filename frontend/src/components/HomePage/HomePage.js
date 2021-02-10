@@ -5,6 +5,7 @@ import { Line } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
 import PortfolioList from '../WatchList/PortfolioList';
 import * as sessionActions from "../../store/session";
+import * as portfolioActions from "../../store/portfolio";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -61,10 +62,12 @@ function HomePage(isLoaded) {
         }
       }
       setPortfolio(userPortfolio);
+      await dispatch(portfolioActions.getPortfolio(quoteTest));
     }
     getPortfolio();
+
   }, []);
-  
+
   // console.log("portfolio", portfolio);
 
   useEffect(() => {
