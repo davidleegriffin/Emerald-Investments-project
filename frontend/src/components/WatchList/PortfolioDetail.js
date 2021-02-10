@@ -28,8 +28,6 @@ function PortfolioDetail(props) {
   // console.log("stockfetch", quotes);
 
   const options = {
-    width: "100",
-    height: "100",
     responsive: true,
     maintainAspectRatio: true,
   }
@@ -54,7 +52,7 @@ function PortfolioDetail(props) {
       <div className="portfolio-container">
         <div>
           <div className="stock-symbol-portfolio">{props.stock.toUpperCase()}
-            <Line id="portfolioChart" data={chartData} options={options}/>
+            <Line id="portfolioChart" data={chartData} width={150} height={50} options={options}/>
           </div>
         </div>
       </div>
