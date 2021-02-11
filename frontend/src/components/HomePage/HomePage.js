@@ -23,10 +23,22 @@ function HomePage(isLoaded) {
   // console.log("T", t);
   if (t < 9) {
     document.body.style.backgroundColor = "black";
+    document.getElementById("navbar").style.backgroundColor = "black";
+    document.querySelector(".navbar-links__home").style.color = "white";
+    document.querySelector(".news-headlines").style.color = "white";
+    document.body.style.color = "white";
   } else if (t < 17) {
     document.body.style.backgroundColor = "white";
+    document.getElementById("navbar").style.backgroundColor = "white";
+    document.querySelector(".navbar-links__home").style.color = "black";
+    document.querySelector(".news-headlines").style.color = "black";
+    document.body.style.color = "black";
   } else {
     document.body.style.backgroundColor = "black";
+    document.getElementById("navbar").style.backgroundColor = "black";
+    document.querySelector(".navbar-links__home").style.color = "white";
+    document.querySelector(".news-headlines").style.color = "white";
+    document.body.style.color = "white";
   }
 
   const handleChange = (e) => {

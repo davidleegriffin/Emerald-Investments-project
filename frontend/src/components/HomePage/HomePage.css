@@ -39,7 +39,7 @@
 #search-field {
   width: 100%;
   background: transparent;
-  color: white;
+  /* color: white; */
   border: none;
   outline: none;
   box-shadow: none;
@@ -94,7 +94,7 @@
 
 .add-portfolio {
   font-family: Nunito, sans-serif;
-  color: white;
+  /* color: white; */
   background: transparent;
   border: none;
   outline: none;
@@ -108,7 +108,7 @@
 
 .graphName {
   margin: 10px;
-  color: white;
+  /* color: white; */
   font-family: Nunito, sans-serif;
 }
 
@@ -138,7 +138,7 @@
   border-radius: 10px;
   height: 30%;
   width: auto;
-  color: white;
+  /* color: white; */
   font-family: Nunito, sans-serif;
   background-color: transparent;
   /* margin-left: -250px; */

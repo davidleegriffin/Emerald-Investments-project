@@ -27,7 +27,7 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <div className="navbar-container">
+    <div id="navbar" className="navbar-container">
       <div className="home">
         <div className="emerald-wrapper">
           <img src="./images/emerald.png" width="30px" alt="emerald-logo" />
