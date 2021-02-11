@@ -39,12 +39,10 @@ function HomePage(isLoaded) {
     setUserId(sessionUser.id);
     setErrors([]);
     setPortfolio(stockSymbol);
-    // console.log('post-push', portfolio)
     return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
     .catch(res => {
       if (res.data && res.data.errors) setErrors(res.data.errors);
     });
-
   }
 
   useEffect(() => {
