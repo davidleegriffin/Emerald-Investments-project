@@ -13,7 +13,6 @@ const PortfolioList = (props) => {
 
     return (
       <div className="mover-container">
-        <h1 className="portfolio-banner">Portfolio</h1>
         <div>{arrPortfolio.map((stock,idx) => <PortfolioDetail key={idx} stock={stock} />)}</div>
       </div>
     );

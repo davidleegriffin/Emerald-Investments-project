@@ -144,19 +144,6 @@ function HomePage(isLoaded) {
           onChange={handleChange}
           />
       </div>
-      <div>
-        <form onSubmit={handleSubmit} id="portfolio-form">
-          <label className="shares-input">
-            <input
-              type="text"
-              id="shares-field"
-              onChange={handleShares}
-              required
-            />
-          </label>
-          <button className="add-portfolio" type="submit">Add Shares to Portfolio</button>
-        </form>
-      </div>
       <div className="stockChart">
         <span className="banner__container">
           <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
@@ -171,6 +158,21 @@ function HomePage(isLoaded) {
         </ul>
       </div>
       <div className="watchlist-container">
+      <div>
+      <h1 className="portfolio-banner">Portfolio</h1>
+        <form onSubmit={handleSubmit} id="portfolio-form">
+          <label className="shares-input">Add
+            <input
+              type="text"
+              id="shares-field"
+              onChange={handleShares}
+              placeholder="#"
+              required
+            />
+          <button className="add-portfolio" type="submit"> Shares of -{stockSymbol} to Portfolio</button>
+          </label>
+        </form>
+      </div>
         {isLoaded && portfolioList}
       </div>
     </div>
