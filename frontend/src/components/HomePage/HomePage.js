@@ -19,6 +19,16 @@ function HomePage(isLoaded) {
   const [errors, setErrors] = useState([]);
   const [portfolio, setPortfolio] = useState();
 
+  const t = (new Date()).getHours();
+  // console.log("T", t);
+  if (t < 9) {
+    document.body.style.backgroundColor = "black";
+  } else if (t < 17) {
+    document.body.style.backgroundColor = "white";
+  } else {
+    document.body.style.backgroundColor = "black";
+  }
+
   const handleChange = (e) => {
     e.preventDefault();
     setStockSymbol(e.target.value);
@@ -103,6 +113,28 @@ function HomePage(isLoaded) {
     lineColor="red";
   }
 
+  const options = {
+    maintainAspectRatio: true,
+    responsive: true,
+
+    legend: {
+      display: false
+    },
+    scales: {
+      xAxes: [{
+          ticks: {
+              display: false //this will remove only the label
+          }
+      }],
+      yAxes: [{
+        ticks: {
+            display: false //this will remove only the label
+        }
+    }]
+    },
+
+  }
+
   const chartData = {
     labels: [...dataLabel],
     datasets: [
@@ -111,7 +143,10 @@ function HomePage(isLoaded) {
         data: [...dataPrice],
         fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
-        borderColor: `${lineColor}`
+        borderColor: `${lineColor}`,
+        borderWidth: 0.75,
+        radius: 0.5,
+        hoverRadius: 4,
       }
     ]
   };
@@ -149,7 +184,7 @@ function HomePage(isLoaded) {
           <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
           <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
         </span>
-        <Line id="chart" data={chartData} />
+        <Line id="chart" data={chartData} options={options} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>

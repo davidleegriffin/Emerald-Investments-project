@@ -37,6 +37,7 @@ function SignupFormPage() {
 
   return (
     <div>
+      <img src="https://images.unsplash.com/photo-1511132972173-58eebd7409d2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"></img>
       <div className="form-signup__wrapper">
         <form onSubmit={handleSubmit} id="signupForm">
           <div><h2>SIGNUP</h2></div>

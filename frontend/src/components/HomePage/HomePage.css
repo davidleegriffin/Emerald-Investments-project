@@ -116,7 +116,7 @@
   display: flexbox;
   width: 800px;
   /* border: 1px solid rgba(48, 48, 70, 0.7); */
-  background-color: rgba(255, 255, 255, 0.005);
+  background-color: transparent;
   grid-column-start: 1;
 }
 
@@ -126,7 +126,7 @@
 
 .news-page-container {
   display: grid;
-  background-color: black;
+  background-color: transparent;
   width: 100%;
 }
 
@@ -140,7 +140,7 @@
   width: auto;
   color: white;
   font-family: Nunito, sans-serif;
-  background-color: rgba(30,30,30,0.25);
+  background-color: transparent;
   /* margin-left: -250px; */
   /* margin-right: 50px; */
   margin-top: 20px;

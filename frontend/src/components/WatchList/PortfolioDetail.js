@@ -63,8 +63,9 @@ function PortfolioDetail(props) {
         fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
         borderColor: `${lineColor}`,
-        borderWidth: 1,
-        radius: 1.5,
+        borderWidth: 0.5,
+        radius: 0.25,
+        hoverRadius: 4,
       }
     ]
   };

@@ -40,45 +40,49 @@ function LoginFormPage() {
   };
 
   return (
-    <div className="form-wrapper">
+    <div className="login__page-wrapper">
+      <img src="https://images.unsplash.com/photo-1465411261564-1308080c8010?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"></img>
+      <div className="form-wrapper">
 
-      <ul className="login__errors">
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+        <ul className="login__errors">
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
 
-      <form className="form-login" onSubmit={handleSubmit} id="loginForm" autoComplete="off">
-        <div><h2>LOGIN</h2></div>
-        <div className="input-wrapper">
+        <form className="form-login" onSubmit={handleSubmit} id="loginForm" autoComplete="off">
+          <div><h2>LOGIN</h2></div>
+          <div className="input-wrapper">
 
-          <input
-            type="text"
-            autoComplete="off"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            className="login-form__input--name"
-            required=" "
-            name=""
-          />
-          <label className="login-form__label--name">Username or Email</label>
+            <input
+              type="text"
+              autoComplete="off"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              className="login-form__input--name"
+              required=" "
+              name=""
+            />
+            <label className="login-form__label--name">Username or Email</label>
 
-          <input
-            type="password"
-            autoComplete="new-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="login-form__input--password"
-            required=" "
-            name=""
-          />
-          <label className="login-form__label--password">Password</label>
+            <input
+              type="password"
+              autoComplete="new-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="login-form__input--password"
+              required=" "
+              name=""
+            />
+            <label className="login-form__label--password">Password</label>
 
-          <button type="submit" className="login-form__button">Log In</button>
-          <button className="login-form__button--demo" onClick={demoSubmit}>Demo Login</button>
-          
-        </div>
+            <button type="submit" className="login-form__button">Log In</button>
+            <button className="login-form__button--demo" onClick={demoSubmit}>Demo Login</button>
+
+          </div>
 
 
-      </form>
+        </form>
+
+      </div>
 
     </div>
   );
