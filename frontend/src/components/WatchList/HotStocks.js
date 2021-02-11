@@ -11,13 +11,13 @@ const HotStocks = () => {
     const stockFetch = async () => {
       const response = await fetch(url);
       const hotties = await response.json();
-      await setHotties(hotties);
+      setHotties(hotties);
     }
     stockFetch();
-    function refresh() {
-      setInterval(stockFetch, 300000);
-    }
-    refresh();
+    // function refresh() {
+    //   setInterval(stockFetch, 300000);
+    // }
+    // refresh();
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-
+const { User } = require("../../db/models");
 const { Portfolio } = require("../../db/models");
 const router = express.Router();
 
@@ -16,10 +16,16 @@ router.post(
   }),
 );
 
+
+
 router.get(
   '/',
   asyncHandler(async (req, res) => {
-    const stocks = await Portfolio.findAll();
+    const stocks = await Portfolio.findAll({
+      where: {
+        userId: 1,
+      }
+    });
     // console.log("++++++++++++++++++++++", stocks);
     res.send(stocks);
   }),

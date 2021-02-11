@@ -3,7 +3,7 @@ const GET_PORTFOLIO = 'portfolio/getPortfolio';
 export const getPortfolio = (portfolio) => {
     return {
         type: GET_PORTFOLIO,
-        portfolio,
+        payload: portfolio,
     };
 };
 
@@ -13,7 +13,7 @@ const portfolioReducer = (state = {}, action) => {
     switch (action.type) {
       case GET_PORTFOLIO:
         newState = Object.assign({}, state);
-        newState.portfolio = action.portfolio;
+        newState.portfolio = action.payload;
         return newState;
       default:
         return state;

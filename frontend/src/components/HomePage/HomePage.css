@@ -51,7 +51,14 @@
 
 #search-field:focus,
 #search-field:hover {
+  background-color: black;
+  color: white;
   border-bottom: 1px solid green;
+}
+
+#search-field:active {
+  background-color: black;
+  color: white;
 }
 
 .search-button {

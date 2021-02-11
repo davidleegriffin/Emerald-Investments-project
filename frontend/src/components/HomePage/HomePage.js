@@ -25,19 +25,19 @@ function HomePage(isLoaded) {
     document.body.style.backgroundColor = "black";
     document.getElementById("navbar").style.backgroundColor = "black";
     document.querySelector(".navbar-links__home").style.color = "white";
-    document.querySelector(".news-headlines").style.color = "white";
+    // document.querySelector(".news-banner").style.color = "white";
     document.body.style.color = "white";
   } else if (t < 17) {
     document.body.style.backgroundColor = "white";
     document.getElementById("navbar").style.backgroundColor = "white";
     document.querySelector(".navbar-links__home").style.color = "black";
-    document.querySelector(".news-headlines").style.color = "black";
+    // document.querySelector(".news-banner").style.color = "black";
     document.body.style.color = "black";
   } else {
     document.body.style.backgroundColor = "black";
     document.getElementById("navbar").style.backgroundColor = "black";
     document.querySelector(".navbar-links__home").style.color = "white";
-    document.querySelector(".news-headlines").style.color = "white";
+    // document.querySelector(".news-banner").style.color = "white";
     document.body.style.color = "white";
   }
 
@@ -56,19 +56,8 @@ function HomePage(isLoaded) {
     setStockSymbol(input.value);
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setUserId(sessionUser.id);
-    setErrors([]);
-    setPortfolio(stockSymbol);
-    return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
-    .catch(res => {
-      if (res.data && res.data.errors) setErrors(res.data.errors);
-    });
-  }
-
   useEffect(() => {
-    const getPortfolio = async () => {
+    const queryPortfolio = async () => {
       let userPortfolio = {};
       const resTest = await fetch(`api/portfolio`);
       const quoteTest = await resTest.json();
@@ -82,27 +71,43 @@ function HomePage(isLoaded) {
         }
       }
       setPortfolio(userPortfolio);
-      await dispatch(portfolioActions.getPortfolio(quoteTest));
+      dispatch(portfolioActions.getPortfolio(quoteTest));
     }
-    getPortfolio();
+    queryPortfolio();
+  }, [dispatch]);
 
-  }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUserId(sessionUser.id);
+    let userId = sessionUser.id;
+    console.log("userId", userId, "sessionUser", sessionUser.id);
+    setErrors([]);
+    setPortfolio(stockSymbol);
+    return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
+    .catch(res => {
+      if (res.data && res.data.errors) setErrors(res.data.errors);
+    });
+  }
+
 
   // console.log("portfolio", portfolio);
 
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
-    const stockFetch = async () => {
-      const response = await fetch(url);
-      const quotes = await response.json();
-      setData(quotes);
-    }
+    console.log("stockSymbol", stockSymbol);
     window.onload = handleSearch();
-    stockFetch();
-    function refresh() {
-      setInterval(stockFetch, 300000);
+    if(stockSymbol) {
+      const stockFetch = async () => {
+        const response = await fetch(url);
+        const quotes = await response.json();
+        setData(quotes);
+      }
+      stockFetch();
+      function refresh() {
+        setInterval(stockFetch, 60000);
+      }
+      refresh();
     }
-    refresh();
   }, [stockSymbol]);
 
   let dataPrice = [];
@@ -162,7 +167,7 @@ function HomePage(isLoaded) {
   };
 
   // console.log("dataPrice", dataPrice);
-  // console.log('chartData', chartData);
+  console.log('chartData', portfolio);
 
   let portfolioList;
 

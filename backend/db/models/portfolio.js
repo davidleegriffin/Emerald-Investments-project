@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       const stock = await Portfolio.create({
         stockSymbol,
         shares,
-        userId
+        userId,
       });
       return stock;
       // return await Portfolio.scope('userId').findbyPk(userId);
