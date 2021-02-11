@@ -20,6 +20,7 @@ router.get(
   '/',
   asyncHandler(async (req, res) => {
     const stocks = await Portfolio.findAll();
+    // console.log("++++++++++++++++++++++", stocks);
     res.send(stocks);
   }),
 );

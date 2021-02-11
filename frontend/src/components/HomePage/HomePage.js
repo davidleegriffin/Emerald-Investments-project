@@ -19,6 +19,16 @@ function HomePage(isLoaded) {
   const [errors, setErrors] = useState([]);
   const [portfolio, setPortfolio] = useState();
 
+  const t = (new Date()).getHours();
+  // console.log("T", t);
+  if (t < 9) {
+    document.body.style.backgroundColor = "black";
+  } else if (t < 17) {
+    document.body.style.backgroundColor = "white";
+  } else {
+    document.body.style.backgroundColor = "black";
+  }
+
   const handleChange = (e) => {
     e.preventDefault();
     setStockSymbol(e.target.value);
@@ -50,8 +60,8 @@ function HomePage(isLoaded) {
       let userPortfolio = {};
       const resTest = await fetch(`api/portfolio`);
       const quoteTest = await resTest.json();
+      console.table("quoteTest", quoteTest);
       for (let i = 0; i < quoteTest.length; i++) {
-        // console.table("quoteTest", quoteTest[i]);
         let currentValue = quoteTest[i].stockSymbol;
         if (userPortfolio[currentValue] === undefined) {
           userPortfolio[currentValue] = quoteTest[i].shares;
@@ -101,6 +111,28 @@ function HomePage(isLoaded) {
     lineColor="red";
   }
 
+  const options = {
+    maintainAspectRatio: true,
+    responsive: true,
+
+    legend: {
+      display: false
+    },
+    scales: {
+      xAxes: [{
+          ticks: {
+              display: false //this will remove only the label
+          }
+      }],
+      yAxes: [{
+        ticks: {
+            display: false //this will remove only the label
+        }
+    }]
+    },
+
+  }
+
   const chartData = {
     labels: [...dataLabel],
     datasets: [
@@ -109,7 +141,10 @@ function HomePage(isLoaded) {
         data: [...dataPrice],
         fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
-        borderColor: `${lineColor}`
+        borderColor: `${lineColor}`,
+        borderWidth: 0.75,
+        radius: 0.5,
+        hoverRadius: 4,
       }
     ]
   };
@@ -142,25 +177,12 @@ function HomePage(isLoaded) {
           onChange={handleChange}
           />
       </div>
-      <div>
-        <form onSubmit={handleSubmit} id="portfolio-form">
-          <label className="shares-input">
-            <input
-              type="text"
-              id="shares-field"
-              onChange={handleShares}
-              required
-            />
-          </label>
-          <button className="add-portfolio" type="submit">Add Shares to Portfolio</button>
-        </form>
-      </div>
       <div className="stockChart">
         <span className="banner__container">
           <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
           <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
         </span>
-        <Line id="chart" data={chartData} />
+        <Line id="chart" data={chartData} options={options} />
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>
@@ -169,6 +191,21 @@ function HomePage(isLoaded) {
         </ul>
       </div>
       <div className="watchlist-container">
+      <div>
+      <h1 className="portfolio-banner">Portfolio</h1>
+        <form onSubmit={handleSubmit} id="portfolio-form">
+          <label className="shares-input">Add
+            <input
+              type="text"
+              id="shares-field"
+              onChange={handleShares}
+              placeholder="#"
+              required
+            />
+          <button className="add-portfolio" type="submit"> Shares of -{stockSymbol} to Portfolio</button>
+          </label>
+        </form>
+      </div>
         {isLoaded && portfolioList}
       </div>
     </div>

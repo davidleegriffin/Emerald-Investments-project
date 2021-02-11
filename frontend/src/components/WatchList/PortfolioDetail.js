@@ -14,7 +14,7 @@ function PortfolioDetail(props) {
     }
     stockFetch();
   }, []);
-   
+
   let dataPrice = [];
   let dataLabel = [];
   data.forEach(quote => {
@@ -35,9 +35,10 @@ function PortfolioDetail(props) {
   const options = {
     maintainAspectRatio: true,
     responsive: true,
+
     legend: {
       display: true
-    }, 
+    },
     scales: {
       xAxes: [{
           ticks: {
@@ -61,7 +62,10 @@ function PortfolioDetail(props) {
         data: [...dataPrice],
         fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
-        borderColor: `${lineColor}`
+        borderColor: `${lineColor}`,
+        borderWidth: 0.5,
+        radius: 0.25,
+        hoverRadius: 4,
       }
     ]
   };
@@ -72,7 +76,7 @@ function PortfolioDetail(props) {
     return (
       <div className="portfolio-container">
         <div>
-          <div className="stock-symbol-portfolio"> 
+          <div className="stock-symbol-portfolio">
             <Line id="portfolioChart" data={chartData} options={options} />
             <p>${dataPrice[`${ dataPrice.length -1 }`]}</p>
           </div>

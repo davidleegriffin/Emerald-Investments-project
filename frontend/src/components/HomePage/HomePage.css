@@ -66,6 +66,7 @@
 
 
 #portfolio-form {
+  grid-column-start: 3;
   font-family: Nunito, sans-serif;
   padding-left: 15px;
   padding-right: 15px;
@@ -80,6 +81,7 @@
   text-align: center;
   background: transparent;
   border: none;
+  border-bottom: 1px solid white;
   outline: none;
   box-shadow: none;
 }
@@ -114,7 +116,7 @@
   display: flexbox;
   width: 800px;
   /* border: 1px solid rgba(48, 48, 70, 0.7); */
-  background-color: rgba(255, 255, 255, 0.005);
+  background-color: transparent;
   grid-column-start: 1;
 }
 
@@ -124,22 +126,24 @@
 
 .news-page-container {
   display: grid;
-  background-color: black;
+  background-color: transparent;
   width: 100%;
 }
 
 .watchlist-container {
   position: sticky;
-  top: -90%;
-  grid-column-start: 3;
+  top: -70%;
+  grid-column-start: 3/4;
   border: 1px solid rgba(48, 48, 70, 0.5);
   border-radius: 10px;
   height: 30%;
+  width: auto;
   color: white;
   font-family: Nunito, sans-serif;
-  background-color: rgba(30,30,30,0.25);
-  margin-left: -150px;
-  margin-right: 50px;
+  background-color: transparent;
+  /* margin-left: -250px; */
+  /* margin-right: 50px; */
+  margin-top: 20px;
 }
 
 @keyframes rainbow-main {

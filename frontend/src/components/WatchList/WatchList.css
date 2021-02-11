@@ -8,10 +8,11 @@
 }
 
 .mover-container {
-  width: 400px;
+  width: 350px;
   height: auto;
   position: relative;
-  justify-content: center;
+  /* margin-left: 50px; */
+  /* justify-content: center; */
 }
 
 .portfolio-banner {
@@ -19,10 +20,16 @@
   margin-left: 33%;
 }
 
+#portfolio-form {
+  margin-bottom: 50px;
+  margin-left: 20px;
+}
+
 .stock-symbol-portfolio {
   width: 250px;
   height: 150px;
   display: inline-flex;
+  margin-left: 25px;
 }
 
 /* .stock-symbol-portfolio {
@@ -76,7 +83,7 @@
   width: 300px;
   margin-top: -78px;
   text-align: center;
- 
+
 }
 
 .sub-overlay-container {
@@ -103,7 +110,7 @@
   background-color: rgba(175, 255, 235, 1);
   height: 100px;
   font-family: Nunito, sans-serif;
-  font-size: large; 
+  font-size: large;
   margin-top: 5px;
 }
 
