@@ -52,8 +52,8 @@ function HomePage(isLoaded) {
       let userPortfolio = {};
       const resTest = await fetch(`api/portfolio`);
       const quoteTest = await resTest.json();
+      console.table("quoteTest", quoteTest);
       for (let i = 0; i < quoteTest.length; i++) {
-        // console.table("quoteTest", quoteTest[i]);
         let currentValue = quoteTest[i].stockSymbol;
         if (userPortfolio[currentValue] === undefined) {
           userPortfolio[currentValue] = quoteTest[i].shares;
