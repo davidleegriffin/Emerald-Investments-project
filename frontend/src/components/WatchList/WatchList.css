@@ -8,7 +8,7 @@
 }
 
 .mover-container {
-  width: 350px;
+  width: fit-content;
   height: auto;
   position: relative;
   /* margin-left: 50px; */
@@ -68,6 +68,7 @@
 }
 
 .companyName {
+  color: white;
   border-radius: 25px;
   font-family: Nunito, sans-serif;
   font-size: x-large;

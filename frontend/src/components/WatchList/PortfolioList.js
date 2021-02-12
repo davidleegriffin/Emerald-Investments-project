@@ -11,12 +11,12 @@ const PortfolioList = () => {
 
   if (statePortfolio) {
     for (let i = 0; i < statePortfolio.length; i++) {
-      console.log("statePortfolio", statePortfolio[i].stockSymbol); 
+      // console.log("statePortfolio", statePortfolio[i].stockSymbol); 
       if (arrPortfolio.includes(statePortfolio[i].stockSymbol)) {
         continue;
-      } 
+      }
       arrPortfolio.push(statePortfolio[i].stockSymbol);
-    }  
+    }
   }
 
   return (

@@ -61,7 +61,7 @@ function HomePage(isLoaded) {
       let userPortfolio = {};
       const resTest = await fetch(`api/portfolio`);
       const quoteTest = await resTest.json();
-      console.table("quoteTest", quoteTest);
+      // console.table("quoteTest", quoteTest);
       for (let i = 0; i < quoteTest.length; i++) {
         let currentValue = quoteTest[i].stockSymbol;
         if (userPortfolio[currentValue] === undefined) {
@@ -80,7 +80,7 @@ function HomePage(isLoaded) {
     e.preventDefault();
     setUserId(sessionUser.id);
     let userId = sessionUser.id;
-    console.log("userId", userId, "sessionUser", sessionUser.id);
+    // console.log("userId", userId, "sessionUser", sessionUser.id);
     setErrors([]);
     setPortfolio(stockSymbol);
     return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
@@ -94,7 +94,7 @@ function HomePage(isLoaded) {
 
   useEffect(() => {
     const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
-    console.log("stockSymbol", stockSymbol);
+    // console.log("stockSymbol", stockSymbol);
     window.onload = handleSearch();
     if(stockSymbol) {
       const stockFetch = async () => {
@@ -167,7 +167,7 @@ function HomePage(isLoaded) {
   };
 
   // console.log("dataPrice", dataPrice);
-  console.log('chartData', portfolio);
+  // console.log('chartData', portfolio);
 
   let portfolioList;
 
@@ -219,7 +219,7 @@ function HomePage(isLoaded) {
               placeholder="#"
               required
               />
-               Shares of -{stockSymbol} to 
+               Shares of -{stockSymbol} to
           <button className="add-portfolio" type="submit">Portfolio</button>
           </label>
         </form>
