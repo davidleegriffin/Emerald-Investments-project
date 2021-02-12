@@ -8,7 +8,7 @@ function PortfolioDetail(props) {
 
   useEffect(() => {
     const stockFetch = async () => {
-      const response = await fetch(`https://cloud.iexapis.com/stable/stock/${props.stock}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=40`);
+      const response = await fetch(`https://cloud.iexapis.com/stable/stock/${props.stock}/intraday-prices?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=40`);
       const quotes = await response.json();
       setData(quotes);
     }

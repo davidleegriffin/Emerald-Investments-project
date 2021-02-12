@@ -93,7 +93,7 @@ function HomePage(isLoaded) {
   // console.log("portfolio", portfolio);
 
   useEffect(() => {
-    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=400`;
+    const url = `https://cloud.iexapis.com/stable/stock/${stockSymbol}/intraday-prices?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=400`;
     // console.log("stockSymbol", stockSymbol);
     window.onload = handleSearch();
     if(stockSymbol) {

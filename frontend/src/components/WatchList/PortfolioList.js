@@ -29,7 +29,7 @@ const PortfolioList = () => {
       shares = statePortfolio[i].shares;
       // console.log("shares", shares);
       const stockFetch = async () => {
-        const response = await fetch(`https://cloud.iexapis.com/stable/stock/${statePortfolio[i].stockSymbol}/book?token=pk_797fccfaec704ed4909e8ac1156e1db9&chartLast=1`);
+        const response = await fetch(`https://cloud.iexapis.com/stable/stock/${statePortfolio[i].stockSymbol}/book?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=1`);
         const quotes = await response.json();
         // console.log("quotes", (quotes.quote.latestPrice * shares));
         sum += (quotes.quote.latestPrice * shares);

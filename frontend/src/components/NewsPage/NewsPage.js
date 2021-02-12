@@ -8,7 +8,7 @@ function NewsPage(props) {
   // console.log("newstock", stock);
 
   useEffect(() => {
-    const url = `https://cloud.iexapis.com/stable/stock/${stock}/news/last/7?token=pk_797fccfaec704ed4909e8ac1156e1db9`;
+    const url = `https://cloud.iexapis.com/stable/stock/${stock}/news/last/7?token=pk_28ed5007f5f944b4bb34a679e72f21fe`;
     if(stock) {
       const stockNewsFetch = async () => {
         const response = await fetch(url);

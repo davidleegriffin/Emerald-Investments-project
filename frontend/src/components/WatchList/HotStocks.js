@@ -7,7 +7,7 @@ const HotStocks = () => {
   const [hotties, setHotties] = useState([]);
 
   useEffect(() => {
-    const url = `https://cloud.iexapis.com/stable/stock/market/list/gainers?token=pk_797fccfaec704ed4909e8ac1156e1db9`;
+    const url = `https://cloud.iexapis.com/stable/stock/market/list/gainers?token=pk_28ed5007f5f944b4bb34a679e72f21fe`;
     const stockFetch = async () => {
       const response = await fetch(url);
       const fatties = await response.json();
