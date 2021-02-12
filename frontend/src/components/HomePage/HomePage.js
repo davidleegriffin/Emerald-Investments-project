@@ -83,6 +83,7 @@ function HomePage(isLoaded) {
     // console.log("userId", userId, "sessionUser", sessionUser.id);
     setErrors([]);
     setPortfolio(stockSymbol);
+    window.location.reload();
     return dispatch(sessionActions.portfolioAdd({ stockSymbol, shares, userId }))
     .catch(res => {
       if (res.data && res.data.errors) setErrors(res.data.errors);
