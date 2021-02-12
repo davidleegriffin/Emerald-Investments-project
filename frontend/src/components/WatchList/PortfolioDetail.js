@@ -84,7 +84,8 @@ function PortfolioDetail(props) {
         <div>
           <div className="stock-symbol-portfolio">
             <Line id="portfolioChart" data={chartData} options={options} />
-            <p>last price: ${dataPrice[`${dataPrice.length - 1}`]} market value: ${ props.stock.mktValue }</p>
+            <p>price: ${dataPrice[`${dataPrice.length - 1}`]}</p>
+            <p> total: <span>${props.stock.mktValue}</span></p>
           </div>
         </div>
       </div>

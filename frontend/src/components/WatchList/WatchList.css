@@ -30,6 +30,15 @@
   height: 150px;
   display: inline-flex;
   margin-left: 25px;
+  margin-right: 180px;
+}
+
+.stock-symbol-portfolio p {
+  /* display: flex;
+  flex-direction: row; */
+  width: fit-content;
+  margin: 25px;
+  font-size: 12px;
 }
 
 /* .stock-symbol-portfolio {
