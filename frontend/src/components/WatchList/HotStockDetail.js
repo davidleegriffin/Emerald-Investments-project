@@ -4,7 +4,7 @@ import { Line } from "react-chartjs-2";
 
 function HotStockDetail(props) {
   const [data, setData] = useState([]);
-  console.log('portfolioDetail', props.props);
+  // console.log('portfolioDetail', props.props);
 
   useEffect(() => {
     const stockFetch = async () => {
