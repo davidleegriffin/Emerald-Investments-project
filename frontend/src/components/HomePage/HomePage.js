@@ -19,27 +19,27 @@ function HomePage(isLoaded) {
   const [errors, setErrors] = useState([]);
   const [portfolio, setPortfolio] = useState();
 
-  const t = (new Date()).getHours();
-  // console.log("T", t);
-  if (t < 9) {
-    document.body.style.backgroundColor = "black";
-    document.getElementById("navbar").style.backgroundColor = "black";
-    document.querySelector(".navbar-links__home").style.color = "white";
-    // document.querySelector(".news-banner").style.color = "white";
-    document.body.style.color = "white";
-  } else if (t < 17) {
-    document.body.style.backgroundColor = "white";
-    document.getElementById("navbar").style.backgroundColor = "white";
-    document.querySelector(".navbar-links__home").style.color = "black";
-    // document.querySelector(".news-banner").style.color = "black";
-    document.body.style.color = "black";
-  } else {
-    document.body.style.backgroundColor = "black";
-    document.getElementById("navbar").style.backgroundColor = "black";
-    document.querySelector(".navbar-links__home").style.color = "white";
-    // document.querySelector(".news-banner").style.color = "white";
-    document.body.style.color = "white";
-  }
+  // const t = (new Date()).getHours();
+  // // console.log("T", t);
+  // if (t < 9) {
+  //   document.body.style.backgroundColor = "black";
+  //   document.getElementById("navbar").style.backgroundColor = "black";
+  //   document.querySelector(".navbar-links__home").style.color = "white";
+  //   // document.querySelector(".news-banner").style.color = "white";
+  //   document.body.style.color = "white";
+  // } else if (t < 17) {
+  //   document.body.style.backgroundColor = "white";
+  //   document.getElementById("navbar").style.backgroundColor = "white";
+  //   document.querySelector(".navbar-links__home").style.color = "black";
+  //   // document.querySelector(".news-banner").style.color = "black";
+  //   document.body.style.color = "black";
+  // } else {
+  //   document.body.style.backgroundColor = "black";
+  //   document.getElementById("navbar").style.backgroundColor = "black";
+  //   document.querySelector(".navbar-links__home").style.color = "white";
+  //   // document.querySelector(".news-banner").style.color = "white";
+  //   document.body.style.color = "white";
+  // }
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -218,8 +218,9 @@ function HomePage(isLoaded) {
               onChange={handleShares}
               placeholder="#"
               required
-            />
-          <button className="add-portfolio" type="submit"> Shares of -{stockSymbol} to Portfolio</button>
+              />
+               Shares of -{stockSymbol} to 
+          <button className="add-portfolio" type="submit">Portfolio</button>
           </label>
         </form>
       </div>

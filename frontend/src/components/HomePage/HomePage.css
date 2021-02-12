@@ -3,10 +3,9 @@
   src: url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900');
 } */
 
-/* body {
-  background-image: none;
+body {
   background-color: black;
-} */
+}
 
 .main-page-container {
   margin-top: 8%;
@@ -39,7 +38,7 @@
 #search-field {
   width: 100%;
   background: transparent;
-  /* color: white; */
+  color: white;
   border: none;
   outline: none;
   box-shadow: none;
@@ -75,7 +74,7 @@
 #portfolio-form {
   grid-column-start: 3;
   font-family: Nunito, sans-serif;
-  padding-left: 15px;
+  padding-left: 12%;
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -83,12 +82,12 @@
 
 #shares-field {
   background: transparent;
-  width: 25%;
+  width: 15%;
   font-family: Nunito, sans-serif;
   text-align: center;
   background: transparent;
   border: none;
-  border-bottom: 1px solid white;
+  /* border-bottom: 1px solid white; */
   outline: none;
   box-shadow: none;
 }
@@ -100,12 +99,19 @@
 }
 
 .add-portfolio {
+  height: 30px;
+  margin-left: 5px;
   font-family: Nunito, sans-serif;
-  /* color: white; */
-  background: transparent;
-  border: none;
+  color: white;
+  background: rgba(25, 25, 25, 0.5);
+  border: .01px solid green;
+  border-radius: 5px;
   outline: none;
-  box-shadow: none;
+  box-shadow: 0px 0px 4px green;;
+}
+
+.add-portfolio:hover {
+  box-shadow: 0px 0px 8px green;
 }
 
 .banner__container {
@@ -115,7 +121,7 @@
 
 .graphName {
   margin: 10px;
-  /* color: white; */
+  color: white;
   font-family: Nunito, sans-serif;
 }
 
@@ -145,7 +151,7 @@
   border-radius: 10px;
   height: 30%;
   width: auto;
-  /* color: white; */
+  color: white;
   font-family: Nunito, sans-serif;
   background-color: transparent;
   /* margin-left: -250px; */

@@ -18,14 +18,14 @@
   text-decoration: none;
   font-family: Nunito, sans-serif;
   font-size: large;
-  /* color: whitesmoke; */
+  color: whitesmoke;
 }
 
 .navbar-links__login {
   text-decoration: none;
   font-family: Nunito, sans-serif;
   font-weight: 600;
-  /* color: black; */
+  color: black;
 }
 
 .home {
@@ -55,7 +55,7 @@
 .login-container-div {
   display: flex;
   font-family: Nunito, sans-serif;
-  /* color: white; */
+  color: white;
   border-radius: 5px;
   height: 40px;
   width: 75px;
@@ -70,7 +70,7 @@
 .navbar-span {
   font-family: Nunito, sans-serif;
   font-weight: 600;
-  /* color: white; */
+  color: white;
   margin: 15px;
 }
 
@@ -96,7 +96,7 @@
   border: none;
   margin-left: 20px;
   margin-right: 150px;
-  /* color: white; */
+  color: white;
   background-color: transparent;
   list-style-type: none;
 }

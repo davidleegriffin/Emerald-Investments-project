@@ -41,7 +41,7 @@
 .login-form__input--password {
   font-family: Nunito, sans-serif;
   font-size: 16px;
-  /* color: #fff; */
+  color: #fff;
   background: transparent;
   width: 80%;
   outline: none;
