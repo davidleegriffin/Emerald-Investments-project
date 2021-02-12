@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import './WatchList.css';
 import { Line } from "react-chartjs-2";
+import { useSelector } from "react-redux";
+
 
 function PortfolioDetail(props) {
   const [data, setData] = useState([]);
-  // console.log('portfolioDetail', props.stock);
+  const statePortfolio = useSelector(state => state.portfolio.portfolio);
+  // console.log("statePortfolio", statePortfolio);
+  // console.log('portfolioDetail', props.stock.stockSymbol, props.stock.mktValue);
 
   useEffect(() => {
     const stockFetch = async () => {
-      const response = await fetch(`https://cloud.iexapis.com/stable/stock/${props.stock}/intraday-prices?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=40`);
+      const response = await fetch(`https://cloud.iexapis.com/stable/stock/${props.stock.stockSymbol}/intraday-prices?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=40`);
       const quotes = await response.json();
       setData(quotes);
     }
     stockFetch();
-  }, []);
+  }, [props.stock]);
 
   let dataPrice = [];
   let dataLabel = [];
+
   data.forEach(quote => {
+    // console.log("quote", quote.label);
     if (quote.close) {
       dataPrice.push(quote.close);
       dataLabel.push(quote.label);
@@ -58,7 +64,7 @@ function PortfolioDetail(props) {
     labels: [...dataLabel],
     datasets: [
       {
-        label: `${props.stock}`.toUpperCase(),
+        label: `${props.stock.stockSymbol}`.toUpperCase(),
         data: [...dataPrice],
         fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
@@ -78,7 +84,7 @@ function PortfolioDetail(props) {
         <div>
           <div className="stock-symbol-portfolio">
             <Line id="portfolioChart" data={chartData} options={options} />
-            <p>${dataPrice[`${ dataPrice.length -1 }`]}</p>
+            <p>last price: ${dataPrice[`${dataPrice.length - 1}`]} market value: ${ props.stock.mktValue }</p>
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ function HomePage(isLoaded) {
   const [data, setData] = useState([]);
   const [shares, setShares] = useState(0);
   const [stockSymbol, setStockSymbol] = useState();
+  // eslint-disable-next-line no-unused-vars
   const [userId, setUserId] = useState();
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
@@ -168,7 +169,7 @@ function HomePage(isLoaded) {
   };
 
   // console.log("dataPrice", dataPrice);
-  console.log('homePortfolio', portfolio);
+  // console.log('homePortfolio', portfolio);
 
   let portfolioList;
 
@@ -185,7 +186,7 @@ function HomePage(isLoaded) {
   return (
     <div className="main-page-container">
       <div className="search-div">
-          <button className="search-button" onClick={handleSearch}><img src="./images/magnify-glass.png" width="20" /></button>
+          <button className="search-button" onClick={handleSearch}><img alt="magnifying glass" src="./images/magnify-glass.png" width="20" /></button>
           <input
           id="search-field"
           type="text"
