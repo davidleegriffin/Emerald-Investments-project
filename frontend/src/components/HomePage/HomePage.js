@@ -20,27 +20,32 @@ function HomePage(isLoaded) {
   const [errors, setErrors] = useState([]);
   const [portfolio, setPortfolio] = useState();
 
-  // const t = (new Date()).getHours();
-  // // console.log("T", t);
-  // if (t < 9) {
-  //   document.body.style.backgroundColor = "black";
-  //   document.getElementById("navbar").style.backgroundColor = "black";
-  //   document.querySelector(".navbar-links__home").style.color = "white";
-  //   // document.querySelector(".news-banner").style.color = "white";
-  //   document.body.style.color = "white";
-  // } else if (t < 17) {
-  //   document.body.style.backgroundColor = "white";
-  //   document.getElementById("navbar").style.backgroundColor = "white";
-  //   document.querySelector(".navbar-links__home").style.color = "black";
-  //   // document.querySelector(".news-banner").style.color = "black";
-  //   document.body.style.color = "black";
-  // } else {
-  //   document.body.style.backgroundColor = "black";
-  //   document.getElementById("navbar").style.backgroundColor = "black";
-  //   document.querySelector(".navbar-links__home").style.color = "white";
-  //   // document.querySelector(".news-banner").style.color = "white";
-  //   document.body.style.color = "white";
-  // }
+  const statePortfolio = useSelector(state => state.portfolio.portfolio);
+  // console.log("statePortfolio", statePortfolio);
+  let arrPortfolio = [];
+
+  if (statePortfolio) {
+    // let portfolioShares = 0;
+    for (let i=0; i<statePortfolio.length; i++) {
+      // portfolioShares = statePortfolio[i].shares;
+      // eslint-disable-next-line no-loop-func
+      const stockFetch = async () => {
+        const response = await fetch(`https://cloud.iexapis.com/stable/stock/${statePortfolio[i].stockSymbol}/book?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=1`);
+        const quotes = await response.json();
+        console.log("quotes", (statePortfolio[i].shares));
+        statePortfolio[i].mktValue = (quotes.quote.latestPrice * statePortfolio[i].shares);
+      };
+      stockFetch();
+    }
+  }
+
+  if (statePortfolio) {
+    for (let i = 0; i < statePortfolio.length; i++) {
+      arrPortfolio.push(statePortfolio[i]);
+    }
+  }
+
+  console.log("arrPortfolio", arrPortfolio);
 
   const handleChange = (e) => {
     e.preventDefault();
