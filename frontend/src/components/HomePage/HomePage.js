@@ -245,7 +245,7 @@ function HomePage(isLoaded) {
       </div>
       <div className="watchlist-container">
       <div>
-      { (sessionUser) ? <h1 className="portfolio-banner">Portfolio</h1> : <h1 className="portfolio-banner">Hot Stocks</h1> }
+      { (sessionUser) ? <h1 className="portfolio-banner">Portfolio Detail</h1> : <h1 className="portfolio-banner">Hot Stocks</h1> }
         <form onSubmit={handleSubmit} id="portfolio-form">
           <label className="shares-input">Add
             <input

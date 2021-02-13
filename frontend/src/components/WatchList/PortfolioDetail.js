@@ -69,7 +69,7 @@ function PortfolioDetail(props) {
         fill: false,
         backgroundColor: "rgba(0,50,5,0.5)",
         borderColor: `${lineColor}`,
-        borderWidth: 0.5,
+        borderWidth: 1,
         radius: 0.25,
         hoverRadius: 4,
       }
@@ -85,6 +85,7 @@ function PortfolioDetail(props) {
           <div className="stock-symbol-portfolio">
             <Line id="portfolioChart" data={chartData} options={options} />
             <p className="portfolio__label--price"> ${dataPrice[`${dataPrice.length - 1}`]}</p>
+            <div className="portfolio__label--shares">{props.stock.shares} shares</div>
             <div className="portfolio__label--mktValue"><span>market value: ${props.stock.mktValue}</span></div>
           </div>
         </div>

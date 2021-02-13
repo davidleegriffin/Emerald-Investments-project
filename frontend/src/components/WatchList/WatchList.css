@@ -16,8 +16,9 @@
 }
 
 .portfolio-banner {
-  align-content: center;
-  margin-left: 33%;
+  display: flex;
+  justify-content: center;
+  /* margin-left: 33%; */
 }
 
 #portfolio-form {
@@ -35,21 +36,29 @@
 
 .portfolio__label--price {
   position: relative;
-  top: -15px;
+  top: -17px;
   left: -250px;
   font-family: Nunito, sans-serif;
   width: fit-content;
   margin: 25px;
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.portfolio__label--shares {
+  font-family: Nunito, sans-serif;
+  font-size: 14px;
+  position: relative;
+  top: 0px;
+  left: -150px;
 }
 
 .portfolio__label--mktValue {
   position: relative;
-  top: -20px;
-  left: -90px;
+  top: 25px;
+  left: -115px;
   /* width: 150px;
   height: 50px; */
-  margin: 25px;
+  /* margin: 25px; */
   font-family: Nunito, sans-serif;
   font-size: 16px;
   font-weight: 700;
