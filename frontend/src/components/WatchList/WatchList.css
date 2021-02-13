@@ -8,7 +8,7 @@
 }
 
 .mover-container {
-  width: fit-content;
+  width: 350px;
   height: auto;
   position: relative;
   /* margin-left: 50px; */
@@ -29,102 +29,28 @@
   width: 250px;
   height: 150px;
   display: inline-flex;
-  margin-left: 25px;
-  margin-right: 180px;
+  /* margin-left: 25px; */
+  /* margin-right: 180px; */
 }
 
-.stock-symbol-portfolio p {
-  /* display: flex;
-  flex-direction: row; */
+.portfolio__label--price {
+  position: relative;
+  top: -15px;
+  left: -250px;
+  font-family: Nunito, sans-serif;
   width: fit-content;
   margin: 25px;
   font-size: 12px;
 }
 
-/* .stock-symbol-portfolio {
+.portfolio__label--mktValue {
+  position: relative;
+  top: -20px;
+  left: -90px;
+  /* width: 150px;
+  height: 50px; */
+  margin: 25px;
   font-family: Nunito, sans-serif;
-  font-size: xx-large;
-  font-weight: 800;
-  margin-top: 23%;
-  display: flex;
-  justify-content: center;
-} */
-
-.green-arrow {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.overlay {
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  top: 0px;
-  bottom: 0;
-  left: 0px;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  z-index: 3;
-}
-
-.overlay > div {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 25px;
-  border: 2px solid black;
-}
-
-.companyName {
-  color: white;
-  border-radius: 25px;
-  font-family: Nunito, sans-serif;
-  font-size: x-large;
-  font-weight: 900;
-  margin: 20px;
-  border: 2px solid black;
-}
-
-.mover-container:hover .overlay {
-  position: absolute;
-  border-radius: 25px;
-  opacity: 1;
-  width: 300px;
-  margin-top: -78px;
-  text-align: center;
-
-}
-
-.sub-overlay-container {
-  border-radius: 25px;
-}
-
-.latestPrice {
-  font-family: Nunito, sans-serif;
-  font-size: x-large;
-}
-
-.price-change {
-  margin-left: 0px;
-}
-
-.details-wrapper {
-  background-color: black;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 7px;
-}
-
-.details-wrapper div {
-  background-color: rgba(175, 255, 235, 1);
-  height: 100px;
-  font-family: Nunito, sans-serif;
-  font-size: large;
-  margin-top: 5px;
-}
-
-.details-label {
-  font-weight: 800 !important;
-  font-size: large;
+  font-size: 16px;
+  font-weight: 700;
 }

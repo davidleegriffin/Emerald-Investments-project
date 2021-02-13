@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import NewsPage from '../NewsPage/NewsPage';
-import { Line, Pie } from "react-chartjs-2";
+import { Line, Pie, Doughnut } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
 import PortfolioList from '../WatchList/PortfolioList';
 import * as sessionActions from "../../store/session";
@@ -45,7 +45,7 @@ function HomePage(isLoaded) {
   const handleChange = (e) => {
     e.preventDefault();
     if (e.target.value) {
-      setStockSymbol(e.target.value);      
+      setStockSymbol(e.target.value);
     } else {
       setStockSymbol("spy");
     }
@@ -110,7 +110,7 @@ function HomePage(isLoaded) {
       }
       stockFetch();
       function refresh() {
-        setInterval(stockFetch, 60000);
+        setInterval(stockFetch, 300000);
       }
       refresh();
     }
@@ -135,7 +135,12 @@ function HomePage(isLoaded) {
   }
 
   const pieOptions = {
-
+      legend: {
+          display: false,
+          labels: {
+              fontColor: 'rgb(255, 99, 132)'
+          },
+      },
   }
 
   const chartOptions = {
@@ -168,7 +173,8 @@ function HomePage(isLoaded) {
         data: [57600, 270740, 250890, 14260, 39290],
         backgroundColor: ["rgba(0, 255, 0, 0.2)", "rgba(255, 0,0,0.2)", "rgba(0,0,255,0.2)", "rgba(255,255,0,0.2)", "rgba(0,255,255,0.2)"],
       }
-    ]
+    ],
+    borderWidth: "0.1px",
   }
 
   const chartData = {
@@ -216,10 +222,10 @@ function HomePage(isLoaded) {
           />
       </div>
       <div className="stockChart">
-        
+
         {
           (!sessionUser || stockSymbol) ?
-                        <div>  
+                        <div>
                           <span className="banner__container">
                           { (stockSymbol) ? <h1 className="graphName">{stockSymbol.toUpperCase()}</h1> : <h1 className="graphName">SPY</h1> }
                           <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
@@ -227,9 +233,9 @@ function HomePage(isLoaded) {
                           <Line id="chart" data={chartData} options={chartOptions} />
                         </div>
             :
-              <div><h1 className="graphName">PORTFOLIO</h1><Pie id="pie" data={pieData} options={pieOptions} /></div>
+              <div><h1 className="graphName">PORTFOLIO</h1><Doughnut id="pie" data={pieData} options={pieOptions} /></div>
         }
-        
+
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>
@@ -255,7 +261,7 @@ function HomePage(isLoaded) {
         </form>
       </div>
         {isLoaded && portfolioList}
-        
+
       </div>
     </div>
   )
