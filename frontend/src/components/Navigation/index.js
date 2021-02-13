@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
     <div id="navbar" className="navbar-container">
       <div className="home">
         <div className="emerald-wrapper">
-          <img src="./images/emerald.png" width="30px" alt="emerald-logo" />
+          <img className="navbar__image--emerald" src="./images/emerald.png" width="30px" alt="emerald-logo" />
         </div>
         <NavLink className="navbar-links__home" exact to="/">Emerald Investments</NavLink>
       </div>

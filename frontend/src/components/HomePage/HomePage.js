@@ -13,7 +13,7 @@ function HomePage(isLoaded) {
   const sessionUser = useSelector(state => state.session.user);
   const [data, setData] = useState([]);
   const [shares, setShares] = useState(0);
-  const [stockSymbol, setStockSymbol] = useState();
+  const [stockSymbol, setStockSymbol] = useState("spy");
   // eslint-disable-next-line no-unused-vars
   const [userId, setUserId] = useState();
   const dispatch = useDispatch();
@@ -44,7 +44,11 @@ function HomePage(isLoaded) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setStockSymbol(e.target.value);
+    if (e.target.value) {
+      setStockSymbol(e.target.value);      
+    } else {
+      setStockSymbol("spy");
+    }
   };
 
   const handleShares = (e) => {
@@ -190,18 +194,22 @@ function HomePage(isLoaded) {
           <input
           id="search-field"
           type="text"
-          placeholder="Enter Stock Symbol"
-          defaultValue="SPY"
+          placeholder="Enter Stock Symbol(default SPY)"
+          // defaultValue="SPY"
           // value={`${stockSymbol}`}
           onChange={handleChange}
           />
       </div>
       <div className="stockChart">
-        <span className="banner__container">
-          <h1 className="graphName">{`${stockSymbol}`.toUpperCase()}</h1>
+        {(!sessionUser) ?
+        <div>  
+          <span className="banner__container">
+          { (stockSymbol) ? <h1 className="graphName">{stockSymbol.toUpperCase()}</h1> : <h1 className="graphName">SPY</h1> }
           <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
-        </span>
-        <Line id="chart" data={chartData} options={options} />
+          </span>
+          <Line id="chart" data={chartData} options={options} />
+        </div>
+          : <h1 className="graphName">nope</h1>}
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>
@@ -211,7 +219,7 @@ function HomePage(isLoaded) {
       </div>
       <div className="watchlist-container">
       <div>
-      <h1 className="portfolio-banner">Portfolio</h1>
+      { (sessionUser) ? <h1 className="portfolio-banner">Portfolio</h1> : <h1 className="portfolio-banner">Hot Stocks</h1> }
         <form onSubmit={handleSubmit} id="portfolio-form">
           <label className="shares-input">Add
             <input
@@ -227,6 +235,7 @@ function HomePage(isLoaded) {
         </form>
       </div>
         {isLoaded && portfolioList}
+        
       </div>
     </div>
   )

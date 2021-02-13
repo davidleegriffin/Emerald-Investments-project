@@ -18,7 +18,7 @@ body {
 
 .search-div {
   position: fixed;
-  top: 40px;
+  top: 35px;
   left: 250px;
   grid-column-start: 2;
   width: 25%;
@@ -100,7 +100,7 @@ body {
 
 .add-portfolio {
   height: 30px;
-  margin-left: 5px;
+  margin-left: 15px;
   font-family: Nunito, sans-serif;
   color: white;
   background: rgba(25, 25, 25, 0.5);
@@ -117,6 +117,7 @@ body {
 .banner__container {
   display: inline-flex;
   margin-left: 100px;
+  color: white;
 }
 
 .graphName {
