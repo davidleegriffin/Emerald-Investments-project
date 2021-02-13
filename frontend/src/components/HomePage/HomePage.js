@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
 import NewsPage from '../NewsPage/NewsPage';
-import { Line } from "react-chartjs-2";
+import { Line, Pie } from "react-chartjs-2";
 import HotStocks from '../WatchList/HotStocks';
 import PortfolioList from '../WatchList/PortfolioList';
 import * as sessionActions from "../../store/session";
@@ -134,7 +134,11 @@ function HomePage(isLoaded) {
     lineColor="red";
   }
 
-  const options = {
+  const pieOptions = {
+
+  }
+
+  const chartOptions = {
     maintainAspectRatio: true,
     responsive: true,
 
@@ -154,6 +158,17 @@ function HomePage(isLoaded) {
     }]
     },
 
+  }
+
+  const pieData = {
+    labels: ["t", "aapl", "tsla", "fro", "spy"],
+    datasets: [
+      {
+        label: "Portfolio",
+        data: [57600, 270740, 250890, 14260, 39290],
+        backgroundColor: ["rgba(0, 255, 0, 0.2)", "rgba(255, 0,0,0.2)", "rgba(0,0,255,0.2)", "rgba(255,255,0,0.2)", "rgba(0,255,255,0.2)"],
+      }
+    ]
   }
 
   const chartData = {
@@ -201,15 +216,20 @@ function HomePage(isLoaded) {
           />
       </div>
       <div className="stockChart">
-        {(!sessionUser) ?
-        <div>  
-          <span className="banner__container">
-          { (stockSymbol) ? <h1 className="graphName">{stockSymbol.toUpperCase()}</h1> : <h1 className="graphName">SPY</h1> }
-          <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
-          </span>
-          <Line id="chart" data={chartData} options={options} />
-        </div>
-          : <h1 className="graphName">nope</h1>}
+        
+        {
+          (!sessionUser || stockSymbol) ?
+                        <div>  
+                          <span className="banner__container">
+                          { (stockSymbol) ? <h1 className="graphName">{stockSymbol.toUpperCase()}</h1> : <h1 className="graphName">SPY</h1> }
+                          <h1 className="graphName">${`${dataPrice[dataPrice.length - 1]}`}</h1>
+                          </span>
+                          <Line id="chart" data={chartData} options={chartOptions} />
+                        </div>
+            :
+              <div><h1 className="graphName">PORTFOLIO</h1><Pie id="pie" data={pieData} options={pieOptions} /></div>
+        }
+        
         <div className="news-page-container">
           <NewsPage value={stockSymbol} />
         </div>
