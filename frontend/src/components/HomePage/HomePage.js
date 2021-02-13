@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function HomePage(isLoaded) {
   const sessionUser = useSelector(state => state.session.user);
+  // console.log("sessionUser", sessionUser.username);
   const [data, setData] = useState([]);
   const [shares, setShares] = useState(0);
   const [stockSymbol, setStockSymbol] = useState("spy");
@@ -21,19 +22,18 @@ function HomePage(isLoaded) {
   const [portfolio, setPortfolio] = useState();
 
   const statePortfolio = useSelector(state => state.portfolio.portfolio);
-  // console.log("statePortfolio", statePortfolio);
-  let arrPortfolio = [];
+  console.log("statePortfolio", statePortfolio);
+  let pieLabels = [];
+  let pieValues = [];
 
   if (statePortfolio) {
     // let portfolioShares = 0;
     for (let i=0; i<statePortfolio.length; i++) {
-      // portfolioShares = statePortfolio[i].shares;
-      // eslint-disable-next-line no-loop-func
       const stockFetch = async () => {
         const response = await fetch(`https://cloud.iexapis.com/stable/stock/${statePortfolio[i].stockSymbol}/book?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=1`);
         const quotes = await response.json();
-        console.log("quotes", (statePortfolio[i].shares));
-        statePortfolio[i].mktValue = (quotes.quote.latestPrice * statePortfolio[i].shares);
+        // console.log("quotes", (statePortfolio[i].shares));
+        statePortfolio[i].mktValue = Number(quotes.quote.latestPrice * statePortfolio[i].shares).toFixed(2);
       };
       stockFetch();
     }
@@ -41,11 +41,13 @@ function HomePage(isLoaded) {
 
   if (statePortfolio) {
     for (let i = 0; i < statePortfolio.length; i++) {
-      arrPortfolio.push(statePortfolio[i]);
+      console.log("test", statePortfolio[i].mktValue);
+      pieLabels.push(statePortfolio[i].stockSymbol);
+      pieValues.push(statePortfolio[i].mktValue);
     }
   }
 
-  console.log("arrPortfolio", arrPortfolio);
+  // console.log("arrPortfolio", arrPortfolio);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -141,9 +143,9 @@ function HomePage(isLoaded) {
 
   const pieOptions = {
       legend: {
-          display: false,
+          display: true,
           labels: {
-              fontColor: 'rgb(255, 99, 132)'
+              fontColor: 'rgb(255, 255, 255)'
           },
       },
   }
@@ -171,12 +173,12 @@ function HomePage(isLoaded) {
   }
 
   const pieData = {
-    labels: ["t", "aapl", "tsla", "fro", "spy"],
+    labels: pieLabels,
     datasets: [
       {
         label: "Portfolio",
-        data: [57600, 270740, 250890, 14260, 39290],
-        backgroundColor: ["rgba(0, 255, 0, 0.2)", "rgba(255, 0,0,0.2)", "rgba(0,0,255,0.2)", "rgba(255,255,0,0.2)", "rgba(0,255,255,0.2)"],
+        data: pieValues,
+        backgroundColor: ["rgba(0, 255, 0, 0.5)", "rgba(255, 0,0,0.5)", "rgba(0,0,255,0.5)", "rgba(255,255,0,0.5)", "rgba(0,255,255,0.5)"],
       }
     ],
     borderWidth: "0.1px",
@@ -238,7 +240,7 @@ function HomePage(isLoaded) {
                           <Line id="chart" data={chartData} options={chartOptions} />
                         </div>
             :
-              <div><h1 className="graphName">PORTFOLIO</h1><Doughnut id="pie" data={pieData} options={pieOptions} /></div>
+            <div><h1 className="graphName">{ sessionUser.username }'s Portfolio % </h1><Doughnut id="pie" data={pieData} options={pieOptions} /></div>
         }
 
         <div className="news-page-container">

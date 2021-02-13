@@ -9,20 +9,19 @@ const PortfolioList = () => {
   // console.log("statePortfolio", statePortfolio);
   let arrPortfolio = [];
 
-  if (statePortfolio) {
-    let shares = 0;
-    for (let i=0; i<statePortfolio.length; i++) {
-      shares = statePortfolio[i].shares;
-      // eslint-disable-next-line no-loop-func
-      const stockFetch = async () => {
-        const response = await fetch(`https://cloud.iexapis.com/stable/stock/${statePortfolio[i].stockSymbol}/book?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=1`);
-        const quotes = await response.json();
-        // console.log("quotes", (quotes.quote.latestPrice * shares));
-        statePortfolio[i].mktValue = (quotes.quote.latestPrice * shares);
-      };
-      stockFetch();
-    }
-  }
+  // if (statePortfolio) {
+  //   let shares = 0;
+  //   for (let i=0; i<statePortfolio.length; i++) {
+  //     shares = statePortfolio[i].shares;
+  //     const stockFetch = async () => {
+  //       const response = await fetch(`https://cloud.iexapis.com/stable/stock/${statePortfolio[i].stockSymbol}/book?token=pk_28ed5007f5f944b4bb34a679e72f21fe&chartLast=1`);
+  //       const quotes = await response.json();
+  //       // console.log("quotes", (quotes.quote.latestPrice * shares));
+  //       statePortfolio[i].mktValue = Number(quotes.quote.latestPrice * shares).toFixed(2);
+  //     };
+  //     stockFetch();
+  //   }
+  // }
 
   if (statePortfolio) {
     for (let i = 0; i < statePortfolio.length; i++) {
