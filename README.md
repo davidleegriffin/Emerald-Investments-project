@@ -15,7 +15,7 @@
 
 
 # Components
-
+![Login Example](./emerald-login.gif)
 
 
 
