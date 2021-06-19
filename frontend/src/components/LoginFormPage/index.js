@@ -74,6 +74,7 @@ function LoginFormPage() {
             />
             <label className="login-form__label--password">Password</label>
 
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
             <button type="submit" className="login-form__button">Log In</button>
             <button className="login-form__button--demo" onClick={demoSubmit}>Demo Login</button>
 
@@ -81,7 +82,6 @@ function LoginFormPage() {
 
 
         </form>
-
       </div>
 
     </div>
