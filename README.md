@@ -33,6 +33,10 @@
 
 ## POST
       "/login"
+      
+## NEXT STEPS
+      integrate NextAuth.js
+      integrate StepZen backend
   
       
 
